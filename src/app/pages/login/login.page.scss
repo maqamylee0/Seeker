@@ -1,0 +1,19 @@
+
+
+
+
+.form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:20px;
+    background: var(--ion-color-whit);
+}
+.form-list{
+  
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}

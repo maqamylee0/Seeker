@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>preferences</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="prefs">
+  <h2>Select your Area of Interest</h2>
+  <ion-list lines="none" >
+    <ion-item *ngFor="let profession of professions" >
+      <ion-button  type="submit"(click)="onSubmit(profession)"  shape="round" style="color:white" expand="block"> {{ profession }}</ion-button>
+    </ion-item>
+    
+    <ion-button  type="submit"(click)="goToOpportunities()"  shape="round" style="color:white" expand="block"> Submit</ion-button>
+
+  
+  </ion-list>
+  
+</ion-content>

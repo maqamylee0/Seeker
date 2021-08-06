@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true" class="all">
+  <div  class="top" color="primary">
+   
+    <h2>Seeker</h2>
+    
+  </div> <br>
+
+
+<div padding class="all">
+  
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-list class="form">   
+      
+      <ion-item>
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-input type="text"  name="name"  placeholder="Full name" required ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="phone-portrait-outline"></ion-icon>
+        <ion-input type="tel" ngModel  name="phone" placeholder="Phone Number" required   ></ion-input>
+      </ion-item>
+      
+      
+      <ion-item>
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-input type="email" ngModel name="email" placeholder="email" required ></ion-input>
+    </ion-item>
+    
+
+      <ion-item>
+        <ion-icon name="key-outline"></ion-icon>
+          <ion-input type="Password" ngModel  name="password" placeholder="Password" required minilength="5" ></ion-input>
+      </ion-item>
+      
+      
+
+    </ion-list>
+
+    <small class="error">{{error}}</small>
+    <ion-button  type="submit"  shape="round" style="color:white" expand="block"> {{ btnText }} </ion-button>
+     
+  </form>
+  <br/>
+  <div text-center>
+    <small> Clicking create account means you have agreed to <b>Seeker</b> terms and conditions.</small>
+  </div>
+</div>
+</ion-content>
+<ion-footer text-center padding>
+I have an account, <a (click)="goToLogin()"><b>Login</b></a>
+</ion-footer>
+
+
+

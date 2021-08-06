@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true" >
+ 
+
+  <div padding >
+    
+    <form  class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <h2>Login</h2>
+      <ion-list class="form-list">    
+        
+  
+        <ion-item>
+          <ion-icon name="phone-portrait-outline"></ion-icon>
+          <ion-input type="tel" ngModel name="phone" placeholder="Phone Number" #phoneCtrl="ngModel" required   ></ion-input>
+        </ion-item>
+        <p class="error" *ngIf="!phoneCtrl.valid && phoneCtrl.touched">
+          Phone number must be valid.
+        </p>
+        
+  
+        <ion-item>
+          <ion-icon name="key-outline"></ion-icon>
+            <ion-input type="Password"ngModel name="password"  #passwordCtrl="ngModel" placeholder="Password" required minilength="6" ></ion-input>
+        </ion-item>
+        <p class="error" *ngIf="!passwordCtrl.valid && passwordCtrl.touched">
+          Password should five digits.
+        </p>
+        
+  
+      </ion-list>
+      <small class="error">{{error}}</small>
+      <ion-button  type="submit"  shape="round" style="color:white" block> {{ btnText }} </ion-button>
+       
+    </form>
+    <br/>
+    
+  </div>
+  </ion-content>
+  <ion-footer text-center padding>
+  I have no  account,<a (click)="goToSignup()"><b>Sign Up</b></a>
+  </ion-footer>
+  
+  
+  
+  
+  
+  

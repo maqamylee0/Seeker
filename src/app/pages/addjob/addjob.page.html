@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Add Job</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding >
+  
+  <form #form="ngForm" (ngSubmit)="addJob(form)" >
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Job Type</ion-label>
+        <ion-select ngModel  name="jobId" required>
+          <ion-select-option  value="1">Software Developer</ion-select-option>
+          <ion-select-option  value="2">Nurse</ion-select-option>
+          <ion-select-option  value="3">painter</ion-select-option>     
+        </ion-select>
+      </ion-item>
+        <!-- <ion-item>
+          <ion-label position="floating">Job Title</ion-label>
+          <ion-input type="text" ngModel  name="name"  placeholder="Job Title"></ion-input>
+        </ion-item>
+        <br/> -->
+
+        <ion-item>
+          <ion-label position="floating"> Job Description</ion-label>
+          <ion-textarea  ngModel name="description" required ></ion-textarea>
+        </ion-item>
+        <br/>
+
+        <ion-item>
+          <ion-label position="floating">Phone Number</ion-label>
+          <ion-input type="tel" ngModel  name="phone"  placeholder="+256"></ion-input>
+        </ion-item>
+        <br/>
+
+        <ion-item>
+            <ion-label position="floating">Email Address</ion-label>
+            <ion-input type="email" ngModel name="email"  placeholder="example@gmail.com"></ion-input>
+        </ion-item>
+        <br/>
+        
+  
+        <!-- <ion-item>
+            <ion-label position="floating">Job Details</ion-label>
+            <input
+            type="file"
+            class="fileInput"
+            (change)="selectDocument($event)"
+          />
+          <label for="file"><ion-icon name="images"></ion-icon> Select </label>        </ion-item>
+        <br/> -->
+
+        <ion-row>
+          <ion-col size="10">
+            <ion-label position="floating">Job Details</ion-label>
+
+              <ion-item>
+                  <input
+                    type="file"
+                    class="fileInput"
+                    (change)="selectDocument($event)"
+                  />
+                  
+                </ion-item>
+          </ion-col>
+        </ion-row>
+        
+        
+     
+    </ion-list>
+    <ion-button  type="submit"  shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
+  </form>
+</ion-content>

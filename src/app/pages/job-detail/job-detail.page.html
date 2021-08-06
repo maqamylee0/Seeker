@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>jobDetail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-label>
+    <h2>{{job.email}}</h2>
+    <p>{{job.title}} }} </p>
+    <p>{{ job.description }}</p>
+    <ion-button fill="outline" slot="end" (click)="email(job.email)">Email</ion-button>
+    <ion-button name="call" fill="outline" slot="end" *ngIf="order.status==='pending'" (click)="callUser(job.phone)">Contact</ion-button>
+  </ion-label>
+</ion-content>
