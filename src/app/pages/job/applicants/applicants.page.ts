@@ -11,16 +11,33 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./applicants.page.scss'],
 })
 export class ApplicantsPage implements OnInit {
-
+applicants:any;
+user:any;
   constructor(
     public data:DataService,
-    public api:ApiService,
+    public service:ApiService,
     public actionSheetController: ActionSheetController,
     public toast:ToastController,
     public router:Router
   ) { }
 
   ngOnInit() {
+    this.user = this.data.getActiveUser();
   }
+fetchApplicants(){
+  const where = {key: 'jobId', value: this.user.jobId
+ };
+
+  this.service._get('users', where).subscribe(data => {
+    this.applicants = data.docs.map(doc => doc.data());
+    console.log(this.applicants)
+  });
+}
+
+
+
 
 }
+ 
+
+

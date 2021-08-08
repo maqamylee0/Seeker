@@ -1,22 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Opportunities</ion-title>
+  
+  <ion-toolbar color="favorite">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title"> <span style="color:#1f8611;"> Opportunities</span></ion-title>
+
   </ion-toolbar>
-</ion-header>
+</ion-header> 
+
+
 
 <ion-content>
   <ion-list lines="none">
-    <div padding>
-      Opportunities  <span style="color:#1f8611;"></span>
-    </div> <br> 
-
+    
     <ion-item *ngFor="let job of jobs" >
+      <ion-card class="card">
+        <ion-card-header>
+          <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title>
+          <ion-card-subtitle class="card-subtitle">BY:{{ job.company }}</ion-card-subtitle>
+          
+        </ion-card-header>
       
-      <ion-label>
+        <ion-card-content class="card-content">
+          {{job.description}}
+          <br>
+          Email: {{ job.email }}
+        </ion-card-content>
+        <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block" style="--background:green" style="color:white" expand="block"> View</ion-button>
+      </ion-card>
+      
+      <!-- <ion-label>
         <h2>{{job.name}}</h2>
         <p>Description : {{job.description}}</p>
       </ion-label>
-      <ion-button fill="outline" slot="end" (click)="goToJob()"> View </ion-button>
+      <ion-button fill="outline" slot="end" (click)="goToJob()"> View </ion-button> -->
       
     </ion-item>
      

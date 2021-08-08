@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar  color="primary" >
-    <ion-title> Applicants </ion-title>
+  <ion-toolbar  color="favorite" >
+    <ion-title class="title"> Applicants </ion-title>
     <ion-buttons (click)="goToShops()" slot="primary">
         <ion-button  >
           <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>
@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div class="empty"  *ngIf="orders?.length === 0 ">
+  <div class="empty"  *ngIf="applicants?.length === 0 ">
     <ion-icon name="notifications"></ion-icon>     
     <h5>No Applications made!</h5>
     
@@ -17,31 +17,37 @@
 
   <br>
   <ion-list lines="none">
-    <div padding>
-      Applications  <span style="color:#1f8611;"></span>
-    </div> <br> 
+    
+    <ion-item *ngFor="let applicant of applicants" >
+      <ion-card class="card">
+        <ion-card-header>
+          <ion-card-title class="card-title">{{applicant.name}}</ion-card-title>
+          <ion-card-subtitle class="card-subtitle">{{ applicant.email }}</ion-card-subtitle>
+          
+        </ion-card-header>
+      
+        <ion-card-content class="card-content">
+          {{applicant.phone}}
+          <br>
+          Email: {{ applicant.age }}
+        </ion-card-content>
+        <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block"  style="color:white" expand="block"> View</ion-button>
+      
+      
+      <ion-button fill="outline" slot="end" (click)="viewCv(applicant.uid) ">View Cv</ion-button>
+    </ion-card>
 
-    <ion-item *ngFor="let order of orders" >
-      <ion-thumbnail slot="start">
-        <img [src]="order.product.imageUrl"/>
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{order.product.name}}</h2>
-        <p>Price : {{order.product.price}}</p>
-        <p>Payment on delivery</p>
-      </ion-label>
-      <ion-button fill="outline" slot="end" (click)="presentActionSheet(order)" *ngIf="order.status === 'new' ">Confirm Order</ion-button>
-      <ion-button fill="outline" color="success" disabled slot="end" *ngIf="order.status === 'confirmed'" >Processing Order</ion-button>
-      <ion-button fill="outline" color="danger" disabled slot="end" *ngIf="order.status === 'canceled'" >Cancelled</ion-button>
     </ion-item>
      
-    <ion-segment (click)="goToShops()" >
+    <!-- <ion-segment (click)="goToShops()" >
       <ion-segment-button value="friends">
         <ion-label>Back to Shoppping</ion-label> 
       </ion-segment-button>
      
-    </ion-segment>
+    </ion-segment> -->
 
   </ion-list>
       
 </ion-content>
+
+

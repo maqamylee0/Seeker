@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
             this.userProfile = result.data();
             localStorage.setItem('activeUser', JSON.stringify(this.userProfile));
             //if (this.userProfile.type === 'employee') {
-              this.router.navigate(['/preferences'])
+              this.router.navigate(['/opportunities'])
           
             // } else {
             //   this.service._get('jobs', {key: 'owner', value: uid}).subscribe( shopData => {

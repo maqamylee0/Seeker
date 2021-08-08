@@ -16,6 +16,7 @@ export class SignupPage implements OnInit {
   btnDisabled=false;
   error:any;
   user:any
+  jobId:any;
   constructor(
     public fireAuth:AngularFireAuth,
     public firestore:AngularFireStorage,
@@ -26,6 +27,8 @@ export class SignupPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.jobId=localStorage.getItem('jobId');
+    console.log(this.jobId);
   }
 
   onSubmit(form){
@@ -34,7 +37,8 @@ export class SignupPage implements OnInit {
     const user = form.value;
     const email = user.phone + '@seekerapp.com';
     this.createUser(user.password, email)
-      .then(data => {
+      .then(data => {        
+        user.jobId=this.jobId;
         user.uid = data.user.uid;
         delete user.password;
         this.service._addUser('users', user, resultSet => {

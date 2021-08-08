@@ -16,8 +16,8 @@ export class DataService {
 
   }
    // function to get vendor shop
-  getMyJob() {
-    return JSON.parse(localStorage.getItem('myjob'));
+  getjobId() {
+    return JSON.parse(localStorage.getItem('jobId'));
   }
     //function to get active shop
   getActiveJob() {

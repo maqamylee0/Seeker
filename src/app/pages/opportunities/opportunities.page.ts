@@ -37,13 +37,7 @@ jobs:any;
     console.log(this.user.jobId);
     const where = {key: 'jobId', value: this.user.jobId };
     console.log(this.user.jobId);
-  //  this.service._get('jobs', where = null) {
-  //     if ( where !== null ) {
-  //       return this.fireStore.collection('jobs', ref => ref.where(jobId, '==', where.).orderBy('timeStamp', 'desc')).get();
-  //     } else {
-  //       return this.fireStore.collection('jobs', ref => ref.orderBy('timeStamp', 'desc')).get();
-  //     }
-  //   }
+  
     this.service._get('jobs', where).subscribe(data => {
       this.jobs = data.docs.map(doc => doc.data());
       console.log(this.jobs)

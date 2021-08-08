@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/shop/products',
+    redirectTo: '/job/applicants',
     pathMatch: 'full'
   }
 ];

@@ -26,12 +26,12 @@
   --ion-color-primary-tint: #4c8dff;
 
   /** secondary **/
-  --ion-color-secondary: #3dc2ff;
-  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary: #006600;
+  --ion-color-secondary-rgb: 0,102,0;
   --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #36abe0;
-  --ion-color-secondary-tint: #50c8ff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #005a00;
+  --ion-color-secondary-tint: #1a751a;
 
   /** tertiary **/
   --ion-color-tertiary: #5260ff;
@@ -104,7 +104,11 @@
   --ion-color-contrast-rgb: var(--ion-color-whit-contrast-rgb);
   --ion-color-shade: var(--ion-color-whit-shade);
   --ion-color-tint: var(--ion-color-whit-tint);
+
+
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   /*
@@ -113,6 +117,7 @@
    */
 
   body {
+    --ion-color-btn:#006600;
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -183,6 +188,8 @@
    */
 
   .ios body {
+    --ion-color-btn:#006600;
+
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0,0,0;
 
@@ -227,6 +234,8 @@
    */
 
   .md body {
+    --ion-color-btn:#006600;
+
     --ion-background-color: #121212;
     --ion-background-color-rgb: 18,18,18;
 

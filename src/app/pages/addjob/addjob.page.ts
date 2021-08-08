@@ -16,12 +16,12 @@ export class AddjobPage implements OnInit {
   job: any;
   btnDisabled=false;
   jobs: any;
+  user:any;
   file: File;
   documentFile=""
   documentUrl=""
   btnText = 'Add Job';
   processing = false;
-  img: any;
   constructor(
     public firestore:AngularFireStorage,
     public service:ApiService,
@@ -31,6 +31,7 @@ export class AddjobPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = this.data.getActiveUser();
   }
   selectDocument(event) {
     this.documentFile = event.target.files[0];
@@ -48,6 +49,7 @@ export class AddjobPage implements OnInit {
     this.processing = true;
     this.btnDisabled = true;
     const job = form.value;
+    job.userId=this.user.uid;    
     console.log(job);
     const jobId= parseInt(job.jobId);
     const url = await this.upload(this.documentFile);

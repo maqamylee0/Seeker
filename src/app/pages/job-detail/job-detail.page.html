@@ -1,15 +1,67 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>jobDetail</ion-title>
+  <ion-toolbar color="favorite">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title"> <span style="color:#1f8611;"> Job Detail</span></ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-label>
-    <h2>{{job.email}}</h2>
-    <p>{{job.title}} }} </p>
-    <p>{{ job.description }}</p>
-    <ion-button fill="outline" slot="end" (click)="email(job.email)">Email</ion-button>
-    <ion-button name="call" fill="outline" slot="end" *ngIf="order.status==='pending'" (click)="callUser(job.phone)">Contact</ion-button>
-  </ion-label>
+<ion-content class="ion-content">
+  <ion-item *ngFor="let jobdet of jobdetail" >
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title class="card-title">{{jobdet.jobTitle}}</ion-card-title>
+      <ion-card-subtitle class="card-subtitle">BY:{{ jobdet.company }}</ion-card-subtitle>
+      
+    </ion-card-header>
+  
+    <ion-card-content class="card-content">
+     <p>{{jobdet.description}}</p> 
+      <br>
+      <p> Email: {{ jobdet.email }}</p>
+     
+  
+    
+  <form #form="ngForm" (ngSubmit)="addJob(form)" >
+    <ion-list class="container">           
+       
+        <ion-item>
+          <ion-label position="floating">Phone Number</ion-label>
+          <ion-input type="tel" ngModel  name="phone"  placeholder="+256"></ion-input>
+        </ion-item>
+        <br/>
+
+        <ion-item>
+            <ion-label position="floating">Email Address</ion-label>
+            <ion-input type="email" ngModel name="email"  placeholder="example@gmail.com"></ion-input>
+        </ion-item>
+        <br/>   
+  
+        
+        <ion-row>
+          <ion-col size="10">
+            <ion-label position="floating">Upload CV</ion-label>
+
+              <ion-item>
+                  <input
+                    type="file"
+                    class="fileInput"
+                    (change)="selectDocument($event)"
+                  />
+                  
+                </ion-item>
+          </ion-col>
+        </ion-row>      
+      
+     
+    </ion-list>
+
+    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
+  </form>
+</ion-card-content>
+
+</ion-card>
+</ion-item>
 </ion-content>

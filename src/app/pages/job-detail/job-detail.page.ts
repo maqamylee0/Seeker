@@ -6,7 +6,7 @@ import { ApiService} from '../services/api-service.service';
 import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { CallNumber } from '@ionic-native/call-number/ngx';
+//import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @Component({
   selector: 'app-job-detail',
@@ -16,6 +16,15 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 export class JobDetailPage implements OnInit {
   user:any;
   job:any;
+  jobdetail:any;
+  openForm: boolean = false;
+  btnDisabled=false;
+  jobs: any;
+  file: File;
+  documentFile=""
+  documentUrl=""
+  processing = false;
+  btnText="Submitting CV"
     constructor(
       public fireAuth:AngularFireAuth,
       public firestore:AngularFireStorage,
@@ -24,61 +33,76 @@ export class JobDetailPage implements OnInit {
       public data:DataService,
       public toast:ToastController,
       public fireStore:AngularFirestore,
-      private callNumber: CallNumber
+     // private callNumber: CallNumber
 
     ) { }
   
     ngOnInit() {
       this.user = this.data.getActiveUser();
     }
-  
     ionViewWillEnter() {
       this.fetchMyJob();
+      
     }
   
     fetchMyJob(){  
-      console.log(this.user.jobId);
-      const where = {key: 'jobId', value: this.user.jobId };
-      console.log(this.user.jobId);
-    //  this.service._get('jobs', where = null) {
-    //     if ( where !== null ) {
-    //       return this.fireStore.collection('jobs', ref => ref.where(jobId, '==', where.).orderBy('timeStamp', 'desc')).get();
-    //     } else {
-    //       return this.fireStore.collection('jobs', ref => ref.orderBy('timeStamp', 'desc')).get();
-    //     }
-    //   }
+      const where = {key: 'jobId', value: this.user.jobId }; 
+      console.log(this.user.jobId)   
       this.service._get('jobs', where).subscribe(data => {
-        this.job = data.docs.map(doc => doc.data());
-        console.log(this.job)
+        this.jobdetail = data.docs.map(doc => doc.data());
       });
     }
   
-     
-    async showToast(message) {
+    selectDocument(event) {
+      this.documentFile = event.target.files[0];
+      if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+        reader.onload = (event: any) => {
+          this.documentUrl = event.target.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    }
+    
+    async addOffer( form ) {
+      this.btnText = 'Please wait ... ';
+      this.processing = true;
+      this.btnDisabled = true;
+      const job = form.value;
+      job.userId=this.user.uid;
+      console.log(job);
+      const jobId= parseInt(job.jobId);
+      const url = await this.upload(this.documentFile);
+      this.service._addJob('jobs', job, ( result ) => {
+            this.btnText = 'Adding Job..';
+            
+            this.processing = false;
+            if ( result.flag) {
+                this.addBtnClicked();
+                this.presentToast()
+            } else {
+              alert(result.error.message);
+            }
+        });
+      
+    }
+    addBtnClicked() {
+      this.openForm = !this.openForm;
+    }
+  
+    async upload(file) {
+       console.log("here");
+      const randomId = Math.random().toString(36).substring(2);
+      const ref = this.firestore.ref("documents/CV" + randomId);
+      const task = await ref.put(file);
+      const downloadURL = await task.ref.getDownloadURL();
+      return downloadURL;
+    }
+    async presentToast() {
       const toast = await this.toast.create({
-        message,
+        message: 'Job added',
         duration: 2000
       });
       toast.present();
     }
-  
-    // actOnOrder(status, order) {
-    //   // console.log(status, appointment);
-    //   this.service._edit('jobs', o, status, async (result) => {
-    //     await this.showToast(`Confirmation done`);
-    //     this.fetchMyJobs();
-    //   });
-    // }
-    async callUser(phone) {
-      try {
-        await this.callNumber.callNumber(phone, true);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-  
-    goToJob(){
-      this.router.navigate(['/'])
-    }
-  
 }

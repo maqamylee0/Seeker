@@ -82,16 +82,16 @@ console.log(this.user);
     console.log(data);  
     // this.service._edit('users', this.user.uid, data, async (result) => {
     // await this.showToast(`Preference added`);
-     localStorage.setItem('jobId', JSON.stringify(data));
+     localStorage.setItem('jobId', jobId);
     // });
-    this.service._edit('users', this.user.id, data, callback=>{});{      
-      this.fireStore.collection('users')
-      .doc(this.user.id)
-      .update(data)
-      .then( data => {console.log( data) })
-      .catch( error => {console.log(error)});
-    }
-  }
+  //   this.service._edit('users', this.user.id, data, callback=>{});{      
+  //     this.fireStore.collection('users')
+  //     .doc(this.user.id)
+  //     .update(data)
+  //     .then( data => {console.log( data) })
+  //     .catch( error => {console.log(error)});
+  //   }
+   }
   async showToast(message) {
     const toast = await this.toast.create({
       message,
@@ -100,7 +100,7 @@ console.log(this.user);
     toast.present();
   }
   goToOpportunities(){
-    this.router.navigate(['/opportunities'])
+    this.router.navigate(['/signup'])
   }
   async presentToast() {
     const toast = await this.toast.create({
