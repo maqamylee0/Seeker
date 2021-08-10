@@ -24,7 +24,9 @@ export class JobDetailPage implements OnInit {
   documentFile=""
   documentUrl=""
   processing = false;
-  btnText="Submitting CV"
+  btnText1="Contact via phone"
+
+  btnText2="Contact via Email"
     constructor(
       public fireAuth:AngularFireAuth,
       public firestore:AngularFireStorage,
@@ -65,7 +67,7 @@ export class JobDetailPage implements OnInit {
     }
     
     async addOffer( form ) {
-      this.btnText = 'Please wait ... ';
+      this.btnText1 = 'Please wait ... ';
       this.processing = true;
       this.btnDisabled = true;
       const job = form.value;
@@ -74,7 +76,7 @@ export class JobDetailPage implements OnInit {
       const jobId= parseInt(job.jobId);
       const url = await this.upload(this.documentFile);
       this.service._addJob('jobs', job, ( result ) => {
-            this.btnText = 'Adding Job..';
+            this.btnText1 = 'Adding Job..';
             
             this.processing = false;
             if ( result.flag) {

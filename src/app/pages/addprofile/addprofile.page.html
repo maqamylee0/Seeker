@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="favorite">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title"> <span style="color:#1f8611;"> Add Profile</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header class="card-head">
+      <!-- <img [src]="shop.img" height="200px" style="width: 100%" alt=""  /> -->
+      <div class="floatingbtn">
+        <ion-icon
+          style="position: relative; color:white; font-size: 35px;"
+          name="share"
+        ></ion-icon>
+      </div>
+      <ion-card class="floatingbn">
+        <ion-card-content>
+          <ion-icon style="font-size: 30px; color: white" name="cut"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-header>
+    <br />
+
+    <ion-card-content>
+     
+       <form #form="ngForm" (ngSubmit)="addProfile(form)" >
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Job Type</ion-label>
+            <ion-select ngModel  name="jobId" required>
+              <ion-select-option  value="1">Software Developer</ion-select-option>
+              <ion-select-option  value="2">Nurse</ion-select-option>
+              <ion-select-option  value="3">painter</ion-select-option>     
+            </ion-select>
+          </ion-item>
+            <ion-item>
+              <ion-label position="floating">Address</ion-label> 
+              <ion-input type="text" ngModel  name="address"  placeholder="City or town"></ion-input>
+            </ion-item>
+            <br/>
+    
+            <ion-item>
+              <ion-label position="floating"> Age</ion-label>
+              <ion-textarea  ngModel name="age" required ></ion-textarea>
+            </ion-item>
+            <br/>
+    
+            
+            <ion-item>
+              <ion-label position="floating">Sex</ion-label>
+              <ion-select ngModel  name="sex" required>
+                <ion-select-option  value="female">Female</ion-select-option>
+                <ion-select-option  value="male">Male</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Nationality</ion-label>
+                <ion-input type="text" ngModel name="nationality"  placeholder="Ugandan"></ion-input>
+            </ion-item>
+            <br/>
+            
+            <ion-item>
+              <ion-label position="floating">LinkedIn Profile Link</ion-label>
+              <ion-input type="text" ngModel name="linkedIn"  placeholder="linkedIn profile link"></ion-input>
+          </ion-item>
+          <br/>
+          
+      
+            <!-- <ion-item>
+                <ion-label position="floating">Job Details</ion-label>
+                <input
+                type="file"
+                class="fileInput"
+                (change)="selectDocument($event)"
+              />
+              <label for="file"><ion-icon name="images"></ion-icon> Select </label>        </ion-item>
+            <br/> -->
+    
+           
+            
+         
+        </ion-list>
+        <ion-button class="title" type="submit"  shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
+      </form> 
+    </ion-card-content>
+  </ion-card>  
+
+  </ion-content>

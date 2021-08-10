@@ -55,6 +55,15 @@ export class ApiService {
    }).catch( error => callback({flag: false, error}));
   }
 
+  //add Profile
+  _addProfile(collection, data, callback) {
+    data.timeStamp = + new Date();
+    this.fireStore.collection(collection).doc(data.uid).set(data)
+    .then( (ref) => {
+      callback({flag: true, data});
+   }).catch( error => callback({flag: false, error}));
+  }
+
   // method to edit data in our database
 
   _edit(collection, uid, data, callback) {

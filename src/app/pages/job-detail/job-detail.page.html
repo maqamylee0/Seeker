@@ -21,45 +21,13 @@
      <p>{{jobdet.description}}</p> 
       <br>
       <p> Email: {{ jobdet.email }}</p>
-     
+
+
+    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText1}}</ion-button>
+
+
+    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText2}}</ion-button>
   
-    
-  <form #form="ngForm" (ngSubmit)="addJob(form)" >
-    <ion-list class="container">           
-       
-        <ion-item>
-          <ion-label position="floating">Phone Number</ion-label>
-          <ion-input type="tel" ngModel  name="phone"  placeholder="+256"></ion-input>
-        </ion-item>
-        <br/>
-
-        <ion-item>
-            <ion-label position="floating">Email Address</ion-label>
-            <ion-input type="email" ngModel name="email"  placeholder="example@gmail.com"></ion-input>
-        </ion-item>
-        <br/>   
-  
-        
-        <ion-row>
-          <ion-col size="10">
-            <ion-label position="floating">Upload CV</ion-label>
-
-              <ion-item>
-                  <input
-                    type="file"
-                    class="fileInput"
-                    (change)="selectDocument($event)"
-                  />
-                  
-                </ion-item>
-          </ion-col>
-        </ion-row>      
-      
-     
-    </ion-list>
-
-    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
-  </form>
 </ion-card-content>
 
 </ion-card>

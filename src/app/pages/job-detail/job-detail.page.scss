@@ -26,11 +26,12 @@
   }
   .btn-color {
       --background: var(--ion-color-btn);
-      --background: #33cccc;
+      --background: green;
     }
     .title{
         font-family: cursive;
         font-size: larger;
+        --background: green;
     }
   
   .card-subtitle {

@@ -17,13 +17,13 @@
 .floatingbtn{
    height: 55px;
    width: 55px;
-    position: relative;
+    position: absolute;
     z-index: 100;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    left: 260px;
-    bottom: -20px;
+    right: 10px;
+    bottom: -30px;
     border-radius: 50px;
     background-color: rgb(233, 79, 105);
 }
