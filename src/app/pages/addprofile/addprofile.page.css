@@ -1,0 +1,82 @@
+.card-head {
+  padding: 0px;
+  position: relative !important;
+  color: green;
+}
+
+.fab-icon {
+  float: right;
+  margin-left: 220px;
+  font-size: 100px;
+  color: black;
+  margin-top: 1px;
+  margin-bottom: 100px;
+  position: fixed;
+}
+
+.floatingbtn {
+  height: 55px;
+  width: 55px;
+  position: absolute;
+  z-index: 100;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  right: 10px;
+  bottom: -30px;
+  border-radius: 50px;
+  background-color: #e94f69;
+}
+
+.floatingbn {
+  height: 55px;
+  width: 55px;
+  z-index: 100;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: -40px;
+  left: 10px;
+  background-color: #00e1ff;
+}
+
+.shopName {
+  z-index: 100;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 7px;
+  color: white;
+  left: 85px;
+}
+
+.background {
+  background-color: #33cccc;
+}
+
+.title {
+  font-family: cursive;
+  font-size: larger;
+  --background: green;
+}
+/*# sourceMappingURL=addprofile.page.css.map */

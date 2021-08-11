@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAA;EACP,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,GAAG;CACrB;;AACD,AAAA,MAAM,CAAA;EACF,WAAW,EAAE,OAAO;EACpB,SAAS,EAAE,MAAM;EACjB,YAAY,CAAA,MAAC;EACb,KAAK,EAAC,OAAO;CAChB;;AACD,AAAA,WAAW,CAAA;EACP,KAAK,EAAC,KAAK;CACd",
+    "sources": [
+        "addjob.page.scss"
+    ],
+    "names": [],
+    "file": "addjob.page.css"
+}

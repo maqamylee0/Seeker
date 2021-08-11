@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar  color="favorite" >
     <ion-title> My Applications </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu">
+      </ion-menu-button>
+    </ion-buttons>
     <ion-buttons (click)="goToOpportunities()" slot="primary">
         <ion-button  >
           <ion-icon slot="icon-only" name="chevron-forward-circle-outline"></ion-icon>

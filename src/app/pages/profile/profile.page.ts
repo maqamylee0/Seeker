@@ -38,7 +38,7 @@ openForm: boolean = false;
     
   }
   gotoAddProfile(){
-    this.router.navigate(['/addprofile']);
+    this.router.navigate(['addprofile']);
   }
  
 }

@@ -1,0 +1,31 @@
+.title {
+  font-family: cursive;
+  font-size: larger;
+}
+
+.card-title {
+  font-size: 20;
+  font-weight: bold;
+  color: black;
+  padding: 20px;
+  font-family: cursive;
+}
+
+.card {
+  border-radius: 15%;
+  background-color: gold;
+  font-family: cursive;
+  width: 100%;
+  padding: 20px;
+}
+
+.btn-color {
+  --background: var(--ion-color-btn);
+  --background: #33cccc;
+}
+
+.card-subtitle {
+  font-size: 1.0em;
+  color: #33cccc;
+}
+/*# sourceMappingURL=applicants.page.css.map */

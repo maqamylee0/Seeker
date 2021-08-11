@@ -1,0 +1,45 @@
+ion-content {
+  background-color: blue !important;
+}
+
+ion-menu ion-content {
+  background: green !important;
+}
+
+* {
+  background-color: #33cccc;
+}
+
+.title {
+  font-family: cursive;
+  font-size: larger;
+  color: #1f8611;
+  --background: green;
+}
+
+.card-title {
+  font-size: 20;
+  font-weight: bold;
+  color: black;
+  padding: 20px;
+  font-family: cursive;
+}
+
+.card {
+  border-radius: 15%;
+  background-color: gold;
+  font-family: cursive;
+  width: 100%;
+  padding: 20px;
+}
+
+.btn-color {
+  --background: var(--ion-color-btn);
+  --background: #33cccc;
+}
+
+.card-subtitle {
+  font-size: 1.0em;
+  color: #33cccc;
+}
+/*# sourceMappingURL=opportunities.page.css.map */

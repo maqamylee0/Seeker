@@ -1,0 +1,54 @@
+.top {
+  text-align: center;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0f0d0d;
+}
+
+.activeType {
+  background: #fff !important;
+}
+
+.activeType small {
+  color: #33cccc !important;
+}
+
+.inactiveType {
+  background: #33cccc !important;
+}
+
+.inactiveType small {
+  color: #fff !important;
+}
+
+.all {
+  background: #ebfafa;
+  padding: 20px;
+  margin-bottom: 40px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.form {
+  padding: 20px;
+  margin-bottom: 30px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+/*# sourceMappingURL=signup.page.css.map */

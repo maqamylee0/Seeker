@@ -7,7 +7,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { JobPage } from './job.page';
 import { AboutPage } from './about/about.page';
 import { ApplicantsPage } from './applicants/applicants.page'
-import { ConfirmedPage } from './confirmed/confirmed.page';
 
 const routes: Routes = [
   {
@@ -32,15 +31,15 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: 'confirmed',
-        children: [
-          {
-            path: '',
-            component:ConfirmedPage
-          }
-        ]
-      },
+      // {
+      //   path: 'confirmed',
+      //   children: [
+      //     {
+      //       path: '',
+      //       component:ConfirmedPage
+      //     }
+      //   ]
+      // },
       {
        path: '',
        redirectTo: '/job/about',
@@ -64,6 +63,6 @@ const routes: Routes = [
     IonicModule,
     JobPageRoutingModule
   ],
-  declarations: [JobPage,ConfirmedPage,AboutPage,ApplicantsPage]
+  declarations: [JobPage,AboutPage,ApplicantsPage]
 })
 export class JobPageModule {}

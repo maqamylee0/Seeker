@@ -16,10 +16,10 @@ const routes: Routes = [
     path: 'applicants',
     loadChildren: () => import('./applicants/applicants.module').then( m => m.ApplicantsPageModule)
   },
-  {
-    path: 'confirmed',
-    loadChildren: () => import('./confirmed/confirmed.module').then( m => m.ConfirmedPageModule)
-  }
+  // {
+  //   path: 'confirmed',
+  //   loadChildren: () => import('./confirmed/confirmed.module').then( m => m.ConfirmedPageModule)
+  // }
 ];
 
 @NgModule({
