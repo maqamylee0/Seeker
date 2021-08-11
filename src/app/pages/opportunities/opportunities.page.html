@@ -1,9 +1,7 @@
 <ion-header>
   
   <ion-toolbar color="favorite">
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+    
     <ion-title class="title"> Opportunities</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu">
@@ -15,32 +13,42 @@
 
 
 <ion-content>
+  
   <ion-list lines="none">
-    
-    <ion-item *ngFor="let job of jobs" >
-      <ion-card class="card">
-        <ion-card-header>
-          <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title>
-          <ion-card-subtitle class="card-subtitle">BY:{{ job.company }}</ion-card-subtitle>
-          
-        </ion-card-header>
-      
-        <ion-card-content class="card-content">
-          {{job.description}}
-          <br>
-          Email: {{ job.email }}
-        </ion-card-content>
-        <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block" style="--background:green" style="color:white" expand="block"> View</ion-button>
-      </ion-card>
-      
-      <!-- <ion-label>
-        <h2>{{job.name}}</h2>
-        <p>Description : {{job.description}}</p>
-      </ion-label>
-      <ion-button fill="outline" slot="end" (click)="goToJob()"> View </ion-button> -->
-      
-    </ion-item>
-     
+    <ion-card class="grid">
+      <ion-item *ngFor="let job of jobs" class="grid">
+        <ion-card class="grid">
+          <ion-card-header class="header">
+            
+             <ion-grid >
+              <ion-row >
+                <ion-col col-md-3>
+                  <ion-avatar>
+                    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                </ion-col>
+                <ion-col col-md-3>
+                  <h1>{{job.jobTitle}}</h1>
+                  <!-- <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
+                </ion-col>               
+                
+              </ion-row>
+            </ion-grid>
+            <ion-card-subtitle class="card-subtitle">BY:{{ job.company }}</ion-card-subtitle>
+            
+          </ion-card-header>
+        
+          <ion-card-content class="card-content">
+            {{job.description}}
+            <br>
+            Email: {{ job.email }}
+          </ion-card-content>
+          <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block" style="--background:green" style="color:white" expand="block"> View</ion-button>
+        </ion-card>
+        
+        
+      </ion-item>       
+    </ion-card>    
     
   </ion-list>
 </ion-content>

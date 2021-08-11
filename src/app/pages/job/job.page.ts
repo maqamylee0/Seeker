@@ -12,4 +12,6 @@ export class JobPage implements OnInit {
   ngOnInit() {
   }
 
+  
+
 }

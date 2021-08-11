@@ -40,6 +40,19 @@ openForm: boolean = false;
   gotoAddProfile(){
     this.router.navigate(['addprofile']);
   }
+  signOut() {
+    this.fireAuth.signOut()
+      .then(res => {
+        this.router.navigateByUrl('login');
+        this.data.removeUser();
+        this.data.removeJob();
+        this.data.removeall();
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
  
 }
 

@@ -1,33 +1,46 @@
-ion-content {
-    background-color: blue !important;
+
+ion-content{
+  --ion-background-color: #33cccc;
 }
-ion-menu ion-content {
-    background:green !important;
+.header{
+  background-color: white;
 }
-*{
-  background-color: #33cccc;
+.grid-container{
+  display: grid;
+}
+.grid{
+  background-color: white;
+}
+.card-content{
+  background-color: white;
 }
 .title{
     font-family: cursive;
-    font-size: larger;
+    font-size: medium;
     color:#1f8611;
     --background: green;
 
 
 }
 .card-title {
-  font-size: 20;  
+  font-size: 10;  
   font-weight: bold;
   color: black;
   padding: 20px;
   font-family: cursive;
+  background-color: white;
+
 }
 .card{
     border-radius: 15%;
-    background-color: gold;    
     font-family: cursive;
     width: 100%;
-    padding: 20px;   
+    padding: 20px;
+    background-color: white;   
+
+}
+.header{
+  background-color: white;
 
 }
 .btn-color {
@@ -38,5 +51,6 @@ ion-menu ion-content {
 .card-subtitle {
   font-size: 1.0em;  
   color: #33cccc;
+  background-color: white;
   
 }

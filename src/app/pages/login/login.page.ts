@@ -72,4 +72,13 @@ export class LoginPage implements OnInit {
   goToSignup(){
     this.router.navigate(['/signup'])
   }
+  signOut() {
+    this.fireAuth.signOut()
+      .then(res => {
+        this.router.navigateByUrl('login');
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 }

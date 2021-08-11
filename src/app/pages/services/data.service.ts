@@ -24,4 +24,15 @@ export class DataService {
     return JSON.parse(localStorage.getItem('activeJob'));
   }
 
+  removeUser(){
+    localStorage.removeItem('activeUser');
+  }
+
+  removeJob(){
+    localStorage.removeItem('activeJob');
+  }
+  removeall(){
+    localStorage.clear();
+  }
+
 }

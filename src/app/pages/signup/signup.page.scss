@@ -1,14 +1,16 @@
-.top{
-    text-align: center;
-    height:10vh;    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color:rgb(15, 13, 13);
+
    
+
+.content{
+    background-color:white;
 }
 
+.title{
+    font-family: cursive;
+    font-size: larger;
+    color:#1f8611;
+    --background: green;
+}
 .activeType{
     background: #fff !important;
     small{
@@ -24,7 +26,7 @@
     }
 }
 .all{
-    background: #ebfafa;
+    background: white;
     padding: 20px;
     margin-bottom: 40px;
     border-bottom-left-radius: 25px;
@@ -32,6 +34,10 @@
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
+ion-content{
+    --ion-background-color:#33cccc;
+}
+
 .form{
     padding:20px;
     margin-bottom: 30px;

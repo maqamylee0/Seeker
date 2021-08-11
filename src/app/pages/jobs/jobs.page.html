@@ -12,12 +12,24 @@
 
 
 <ion-content>
+  <ion-card >
   <ion-list lines="none">
     
     <ion-item *ngFor="let job of jobs" >
-      <ion-card class="card">
+      <!-- <ion-card class="card" >
+        <h1>{{job.name}}</h1>
+        <p>BY:{{ job.company }}</p>
+        <h2> {{job.description}}</h2>
+        <p> Email: {{ job.email }}</p>
+        <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block" style="--background:green" style="color:white" expand="block"> View</ion-button> --> 
+
+      <!-- </ion-card> -->
+       <ion-card class="card">
         <ion-card-header>
-          <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title>
+          <ion-avatar>
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+          <ion-card-title class="card-title">{{job.name}}</ion-card-title>
           <ion-card-subtitle class="card-subtitle">BY:{{ job.company }}</ion-card-subtitle>
           
         </ion-card-header>
@@ -27,17 +39,21 @@
           <br>
           Email: {{ job.email }}
         </ion-card-content>
-        <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block" style="--background:green" style="color:white" expand="block"> View</ion-button>
+        
+        <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block"  style="color:white" expand="block"> View</ion-button>
+        <ion-icon name="remove-circle"></ion-icon>
+        <ion-button class="btn-color" type="submit"  shape="block"  style="color:white" expand="block"> Delete Job</ion-button>
+
       </ion-card>
       
-      <!-- <ion-label>
-        <h2>{{job.name}}</h2>
-        <p>Description : {{job.description}}</p>
-      </ion-label>
-      <ion-button fill="outline" slot="end" (click)="goToJob()"> View </ion-button> -->
       
+      
+
     </ion-item>
      
     
   </ion-list>
-</ion-content>
+  
+  
+</ion-card>
+</ion-content> 

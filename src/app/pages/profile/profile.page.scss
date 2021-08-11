@@ -15,29 +15,30 @@
     position: fixed;
 }
 .floatingbtn{
-   height: 55px;
-   width: 55px;
-    position: relative;
-    z-index: 100;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    left: 260px;
-    bottom: -20px;
-    border-radius: 50px;
-    background-color: rgb(233, 79, 105);
-}
-.floatingbn{
-    height: 55px;
+       height: 55px;
     width: 55px;
     z-index: 100;
     display:inline-flex;
     position: absolute;
     align-items: center;
     justify-content: center;
-    bottom: -40px;
+    bottom: 40px;
     left: 10px;
    background-color: rgb(0, 225, 255)
+}
+.floatingbn{
+
+height: 55px;
+   width: 55px;
+    position: relative;
+    z-index: 100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    left: 300px;
+    bottom: 18px;
+    border-radius: 50px;
+    background-color: rgb(233, 79, 105);
 }
 .shopName{
     
@@ -54,8 +55,9 @@
 .title{
     font-family: cursive;
     font-size: larger;
-    --background: green;
+    --background: #33cccc;
     color:#1f8611;
+    border-left: 400px;
 }
 .word-color{
     color:green;

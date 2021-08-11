@@ -18,15 +18,19 @@
   }
   .card{
       border-radius: 15%;
-      background-color: gold;    
+      background-color:white;    
       font-family: cursive;
       width: 90%;
-      padding: 20px;   
+      padding: 20px;
+
   
+  }
+  .grid-container {
+    display: grid;
   }
   .btn-color {
       --background: var(--ion-color-btn);
-      --background: green;
+      --background: #33cccc;
     }
     .title{
         font-family: cursive;

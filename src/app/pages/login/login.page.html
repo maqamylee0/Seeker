@@ -1,13 +1,19 @@
-<ion-content [fullscreen]="true" >
+<ion-header>
+  
+  <ion-toolbar color="favorite">    
+    <ion-title class="title"> Login</ion-title>    
+  </ion-toolbar>
+</ion-header> 
+
  
 
-  <div padding >
-    
-    <form  class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
-      <h2>Login</h2>
-      <ion-list class="form-list">    
-        
-  
+<ion-conent >
+    <ion-card>
+        <form  class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+          <h2 class="title">Login</h2>
+          <ion-list class="form-list">    
+            
+      <ion-card>
         <ion-item>
           <ion-icon name="phone-portrait-outline"></ion-icon>
           <ion-input type="tel" ngModel name="phone" placeholder="Phone Number" #phoneCtrl="ngModel" required   ></ion-input>
@@ -26,15 +32,19 @@
         </p>
         
   
-      </ion-list>
-      <small class="error">{{error}}</small>
-      <ion-button  type="submit"  shape="round" style="color:white" block> {{ btnText }} </ion-button>
-       
-    </form>
-    <br/>
+      </ion-card>
+            
+          </ion-list>
+          <small class="error">{{error}}</small>
+          <ion-button  type="submit"  shape="round" style="color:white" block> {{ btnText }} </ion-button>
+           
+        </form>
+        
+      </ion-card>
+      
+
+    </ion-conent>
     
-  </div>
-  </ion-content>
   <ion-footer text-center padding>
   I have no  account,<a (click)="goToSignup()"><b>Sign Up</b></a>
   </ion-footer>

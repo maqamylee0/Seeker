@@ -60,6 +60,7 @@ export class AddjobPage implements OnInit {
           if ( result.flag) {
               this.addBtnClicked();
               this.presentToast()
+              this.goTojob();
           } else {
             alert(result.error.message);
           }
@@ -68,6 +69,10 @@ export class AddjobPage implements OnInit {
   }
   addBtnClicked() {
     this.openForm = !this.openForm;
+  }
+  goTojob(){
+    this.router.navigate(['/jobs'])
+
   }
 
   async upload(file) {

@@ -7,11 +7,23 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+
   <ion-card>
-    <ion-card-header class="card-head">
+    <div class="empty"  *ngIf="user === null">
+      <ion-icon name="notifications"></ion-icon>     
+      <h1>No profile Yet!</h1>      
+        <!-- <div class="floatingbtn"> -->
+          <ion-button class="title"  shape="block" style="color:white"(click)="gotoAddProfile()" >Add Profile</ion-button>
+
+          <!-- <ion-icon routerLink="/addprofile"
+            style="position: relative; color:white; font-size: 35px;"
+            name="add"
+          >Add Profile</ion-icon> -->
+        <!-- </div>       -->
+    </div>
+    <ion-card-header class="card-head" *ngIf="user !== null">
       <!-- <img [src]="shop.img" height="200px" style="width: 100%" alt=""  /> -->
       <div class="floatingbtn">
-        <!-- <ion-button class="title"   shape="round" style="color:white" (onClick)="gotoAddProfile()" >add Profile</ion-button> -->
 
         <ion-icon routerLink="/addprofile"
           style="position: relative; color:white; font-size: 35px;"
@@ -20,14 +32,16 @@
       </div>
       <ion-card class="floatingbn">
         <ion-card-content>
+          <ion-button class="title"  shape="block" style="color:white" (click)="signOut()" >logout</ion-button>
+
         </ion-card-content>
       </ion-card>
     </ion-card-header>
     <br />
 
-    <ion-card-content>
+    <ion-card-content *ngIf="user !== null">
       <ion-list lines="none">
-        <ion-item>
+        <ion-item  >
           <ion-label>
             <h2 class="word-color">Name</h2>
             <!-- <p>Emmilly</p> -->

@@ -1,9 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>about</ion-title>
+  <ion-toolbar color="favorite">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title"> <span style="color:#1f8611;"> Job Detail</span></ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-content">
+  <ion-item *ngFor="let jobdet of jobdetail" >
+  <ion-card class="card">
+    <ion-card-header>
+      <div class="grid-container">
+        <div class="grid-item"><ion-avatar>
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar></div>
+  <div class="grid-item"><ion-card-title class="card-title">{{jobdet.jobTitle}}</ion-card-title>
+  </div>
+        
 
+      </div>
+      
+      <ion-card-title class="card-title">{{jobdet.jobTitle}}</ion-card-title>
+      <ion-card-subtitle class="card-subtitle">BY:{{ jobdet.company }}</ion-card-subtitle>
+      
+    </ion-card-header>
+  
+    <ion-card-content class="card-content">
+     <p>{{jobdet.description}}</p> 
+      <br>
+      <p> Email: {{ jobdet.email }}</p>
+
+
+    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText1}}</ion-button>
+
+
+    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText2}}</ion-button>
+  
+</ion-card-content>
+
+</ion-card>
+</ion-item>
 </ion-content>

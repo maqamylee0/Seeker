@@ -1,12 +1,4 @@
-ion-content {
-    background-color: blue !important;
-}
-ion-menu ion-content {
-    background:green !important;
-}
-*{
-  background-color: #33cccc;
-}
+
 .title{
     font-family: cursive;
     font-size: larger;
@@ -15,16 +7,19 @@ ion-menu ion-content {
 
 
 }
+*{
+  background-color: #33cccc;
+}
 .card-title {
   font-size: 20;  
   font-weight: bold;
-  color: black;
+  color: green;
   padding: 20px;
   font-family: cursive;
 }
 .card{
     border-radius: 15%;
-    background-color: gold;    
+    background-color: white;    
     font-family: cursive;
     width: 100%;
     padding: 20px;   
