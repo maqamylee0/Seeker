@@ -15,14 +15,12 @@
         <!-- <div class="floatingbtn"> -->
           <ion-button class="title"  shape="block" style="color:white"(click)="gotoAddProfile()" >Add Profile</ion-button>
 
-          <!-- <ion-icon routerLink="/addprofile"
-            style="position: relative; color:white; font-size: 35px;"
-            name="add"
-          >Add Profile</ion-icon> -->
-        <!-- </div>       -->
+          
     </div>
     <ion-card-header class="card-head" *ngIf="user !== null">
       <!-- <img [src]="shop.img" height="200px" style="width: 100%" alt=""  /> -->
+      <ion-button class="title"  shape="block" style="color:white" (click)="editProfile()" >{{ btntext }}</ion-button>
+
       <div class="floatingbtn">
 
         <ion-icon routerLink="/addprofile"

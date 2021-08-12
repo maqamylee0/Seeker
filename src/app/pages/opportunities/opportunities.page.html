@@ -13,6 +13,14 @@
 
 
 <ion-content>
+  <div class="empty"  *ngIf="job?.length === 0">
+    <ion-icon name="notifications"></ion-icon>     
+    <h1>No Job Yet!</h1>      
+      <!-- <div class="floatingbtn"> -->
+        <ion-button class="title"  shape="block" style="color:white"(click)="goToAddjob()" >Add Job</ion-button>
+
+        
+  </div>
   
   <ion-list lines="none">
     <ion-card class="grid">

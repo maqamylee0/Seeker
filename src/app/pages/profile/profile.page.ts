@@ -15,7 +15,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ProfilePage implements OnInit {
 user:any;
 openForm: boolean = false;
-  
+  btntext="Edit";
   
 
   constructor(
@@ -29,7 +29,7 @@ openForm: boolean = false;
   ) { }
 
   ngOnInit() {
-     this.user = JSON.parse(localStorage.getItem('activeProfile'));
+     this.user = JSON.parse(localStorage.getItem('activeUser'));
 
     // this.user = this.data.getActiveUser();
     console.log(this.user);
@@ -52,7 +52,32 @@ openForm: boolean = false;
         console.log(error);
       })
   }
-
+  editProfile(){
+    this.router.navigate(['addprofile']);
+//     this.btntext="Editing..."
+//     console.log(this.user.uid)
+//     const profile=JSON.parse(localStorage.getItem('activeProfile'));
+// console.log(profile);
+//     this.service._edit('users',this.user.uid, profile);{         
+//     this.fireStore.collection('users')
+//     .doc(this.user.uid)
+//     .update(profile)
+//     .then( () =>{     
+//        this.presentToast()
+//        this.btntext="Edit";
+//       }
+//     )
+//     .catch( error =>alert(error.message)
+//     )
+//     }
+  }
+ async presentToast() {
+    const toast = await this.toast.create({
+      message: 'Profile edited',
+      duration: 2000
+    });
+    toast.present();
+  }
  
 }
 

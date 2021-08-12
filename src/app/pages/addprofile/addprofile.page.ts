@@ -38,8 +38,7 @@ openForm: boolean = false;
     this.user = this.data.getActiveUser();
     console.log(this.user);
     
-   
-
+    
     
   }
   
@@ -48,28 +47,52 @@ openForm: boolean = false;
     this.processing = true;
     this.btnDisabled = true;
     const my_profile = form.value;    
-    my_profile.userId=this.user.uid; 
-    my_profile.name=this.user.name; 
+    my_profile.uid=this.user.uid; 
+    // my_profile.name=this.user.name; 
     my_profile.phone=this.user.phone; 
-    my_profile.email=this.user.email; 
-    
+    // my_profile.email=this.user.email; 
+    // editProfile(){
+      // this.btntext="Editing..."
+      console.log(this.user.uid)
+      // const profile=JSON.parse(localStorage.getItem('activeProfile'));
+  console.log(my_profile);
+      this.service._edit('users',this.user.uid, my_profile);{         
+      this.fireStore.collection('users')
+      .doc(this.user.uid)
+      .update(my_profile)
+      .then( () =>{     
+         this.presentToast()
+        //  this.btntext="Edit";
+        this.router.navigate(['profile']);
+
+        localStorage.setItem('activeUser', JSON.stringify(my_profile));
+        }
+      )
+      .catch( error =>alert(error.message)
+      )
+      }
+    }
     // const jobId= parseInt(my_profile.jobId);
     // const url = await this.upload(this.documentFile);
-    this.service._addProfile('Profile', my_profile, ( result ) => {
-          this.btnText = 'Adding Profile..';
+    // this.service._addProfile('Profile', my_profile, ( result ) => {
+    //       this.btnText = 'Adding Profile..';
           
-          this.processing = false;
-          if ( result.flag) {
-              this.addBtnClicked();
-              localStorage.setItem('activeProfile', JSON.stringify(my_profile));
+    //       this.processing = false;
+    //       if ( result.flag) {
+    //           this.addBtnClicked();
+    //           localStorage.setItem('activeProfile', JSON.stringify(my_profile));
 
-              this.presentToast()
-          } else {
-            alert(result.error.message);
-          }
-      });
-    
-  }
+    //           this.presentToast()
+    //           this.btnText = 'Add Profile..';
+
+    //       } else {
+    //         alert(result.error.message);
+    //       }
+    //   });
+  
+  
+  
+  
   addBtnClicked() {
     this.openForm = !this.openForm;
   }

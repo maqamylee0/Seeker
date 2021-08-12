@@ -31,7 +31,7 @@ export class ApiService {
     .then( (ref) => {
       const id = ref.id;
       data.id = id;
-      this._edit(collection, id, {id}, () => {});
+      this._edit(collection, id, {id});
       callback({flag: true, data});
    }).catch( error => callback({flag: false, error}));
   }
@@ -66,24 +66,42 @@ export class ApiService {
 
   // method to edit data in our database
 
-  _edit(collection, uid, data, callback) {
+  _edit(collection, uid, data) {
     this.fireStore.collection(collection)
     .doc(uid)
-    .update(data)
-    .then( data => callback({ data }))
-    .catch( error =>  callback({error}));
+    .set(data)
+    .then( data => { data })
+    .catch( error =>  {error});
   }
 
    // method to delete data from our database
-  _delete( collection, uid, callback) {
+  _delete( collection, uid) {
     this.fireStore.collection(collection)
     .doc(uid)
     .delete()
-    .then( result => callback({result}))
-    .catch(error => callback({error}));
+    .then( result => {result})
+    .catch(error => {error});
   }
-   
 
+  // _addjob(collection){
+  // this.fireStore.collection(collection).snapshotChanges().pipe(
+  //   map(snapshots => {
+  //      return snapshots.map(s => {
+  //       // if you log s here, you can look through the object
+  //       // payload.doc.data() should be the same as what valueChanges returns
+  //       // payload.doc.id will be the id
+  //       // merge them into a new object
+  //       return {...s.payload.doc.data(), id: s.payload.doc.id)}
+  //    })
+  //   }
+  // }
+_addjob(collection,data,callback){
+  this.fireStore.collection(collection).add(data)
+.then( callback
+//     console.log("Document written with ID: ", docRedocReff.id);
+)
+.catch(error => callback)
+}
    //method to upload a file to our online bucket
    
   _uploadImageFile( file, folder, callback) {

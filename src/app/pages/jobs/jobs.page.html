@@ -13,7 +13,16 @@
 
 <ion-content>
   <ion-card >
+    <div class="empty"  *ngIf="jobs?.length === 0">
+      <ion-icon name="notifications"></ion-icon>     
+      <h1>No Job Yet!</h1>      
+        <!-- <div class="floatingbtn"> -->
+          <ion-button class="title"  shape="block" style="color:white"(click)="goToAddjob()" >Add Job</ion-button>
+
+          
+    </div>
   <ion-list lines="none">
+    
     
     <ion-item *ngFor="let job of jobs" >
       <!-- <ion-card class="card" >
@@ -42,7 +51,7 @@
         
         <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block"  style="color:white" expand="block"> View</ion-button>
         <ion-icon name="remove-circle"></ion-icon>
-        <ion-button class="btn-color" type="submit"  shape="block"  style="color:white" expand="block"> Delete Job</ion-button>
+        <ion-button class="btn-color" type="submit"  shape="block"  style="color:white" expand="block" (click)="removeJob()"> Delete Job</ion-button>
 
       </ion-card>
       

@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService} from '../services/api-service.service';
 import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
@@ -16,6 +16,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class JobsPage implements OnInit {
 user:any;
 jobs:any;
+item;
   constructor(
     public fireAuth:AngularFireAuth,
     public firestore:AngularFireStorage,
@@ -23,11 +24,14 @@ jobs:any;
     public router:Router,
     public data:DataService,
     public toast:ToastController,
-    public fireStore:AngularFirestore
+    public fireStore:AngularFirestore,
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.user = this.data.getActiveUser();
+    this.item=this.route.snapshot.params['id'];
+
   }
 
   ionViewWillEnter() {
@@ -37,14 +41,25 @@ jobs:any;
   fetchMyJobs(){  
     console.log(this.user.uid);
     const where = {key: 'userId', value: this.user.uid };
-    console.log(this.user.userId);
+    // console.log(this.user.userId);
   
     this.service._get('jobs', where).subscribe(data => {
       this.jobs = data.docs.map(doc => doc.data());
       console.log(this.jobs)
     });
   }
+removeJob(){
+  console.log(this.item.uid);
+  this.service._delete( 'jobs', this.item.uid);{
+    this.fireStore.collection('jobs')
+    .doc(this.item.uid)
+    .delete()
+    .then( data => this.showToast("Job deleted"))
+    .catch(error => this.showToast("error"+ error))
+  }
 
+
+}
    
   async showToast(message) {
     const toast = await this.toast.create({
@@ -63,7 +78,11 @@ jobs:any;
   // }
 
   goToJob(){
-    this.router.navigate(['/job'])
+    const path=this.item.uid;
+    this.router.navigate(['/job/path'])
+  }
+  goToAddjob(){
+    this.router.navigate(['/addjob'])
   }
 
 }

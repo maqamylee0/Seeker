@@ -4,6 +4,8 @@ import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 
 @Component({
@@ -28,6 +30,7 @@ export class AddjobPage implements OnInit {
     public router:Router,
     public toast:ToastController,
     public data:DataService,
+    public fireStore:AngularFirestore
   ) { }
 
   ngOnInit() {
@@ -44,29 +47,63 @@ export class AddjobPage implements OnInit {
     }
   }
   
+  
   async addJob( form ) {
     this.btnText = 'Please wait ... ';
     this.processing = true;
     this.btnDisabled = true;
     const job = form.value;
     job.userId=this.user.uid;    
-    console.log(job);
+    // console.log(job);
     const jobId= parseInt(job.jobId);
     const url = await this.upload(this.documentFile);
-    this.service._addJob('jobs', job, ( result ) => {
+     this.service._addjob('jobs', job, ( result ) => {
+      console.log(result.id);
+//       this.fireStore.collection('jobs').add(job)
+// .then(     (result)=>{      console.log(result.id);}
+
+// //     console.log("Document written with ID: ", docRedocReff.id);
+// )
+// .catch(error => console.error("Error adding document: ", error))
+// }
           this.btnText = 'Adding Job..';
-          
           this.processing = false;
-          if ( result.flag) {
+          if ( result) {
+            job.uid=result.id;
+            console.log(job.uid);
+            localStorage.setItem('activeJob', JSON.stringify(job));
+
               this.addBtnClicked();
               this.presentToast()
               this.goTojob();
+              this.editJob();
+
           } else {
             alert(result.error.message);
           }
       });
     
   }
+  editJob(){
+    const myjob=JSON.parse(localStorage.getItem('activeJob'));
+    console.log(myjob);    
+    this.service._edit('jobs',myjob.uid, myjob);{         
+    this.fireStore.collection('jobs')
+    .doc(myjob.uid)
+    .update(myjob)
+    .then( () =>{     
+      //  this.presentToast()
+      //  this.btntext="Edit";
+      
+
+      localStorage.removeItem('activeJob');
+      }
+    )
+    .catch( error =>alert(error.message)
+    )
+    }
+     }
+  
   addBtnClicked() {
     this.openForm = !this.openForm;
   }
