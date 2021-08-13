@@ -12,7 +12,7 @@
 
 
 <ion-content>
-  <ion-card >
+  <!-- <ion-card > -->
     <div class="empty"  *ngIf="jobs?.length === 0">
       <ion-icon name="notifications"></ion-icon>     
       <h1>No Job Yet!</h1>      
@@ -49,9 +49,12 @@
           Email: {{ job.email }}
         </ion-card-content>
         
-        <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block"  style="color:white" expand="block"> View</ion-button>
+        <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round"  expand="block"  > View</ion-button>
         <ion-icon name="remove-circle"></ion-icon>
-        <ion-button class="btn-color" type="submit"  shape="block"  style="color:white" expand="block" (click)="removeJob()"> Delete Job</ion-button>
+        <ion-button class="title" type="submit"(click)="goToJobEdit(job)"  shape="round"  expand="block"  > Edit</ion-button>
+
+        <ion-button class="title" type="submit"  shape="block"  expand="round" (click)="removeJob(job.uid)"> Delete Job</ion-button>
+        
 
       </ion-card>
       
@@ -64,5 +67,5 @@
   </ion-list>
   
   
-</ion-card>
+<!-- </ion-card> -->
 </ion-content> 

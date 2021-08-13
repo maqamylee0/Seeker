@@ -2,14 +2,14 @@
 .title{
     font-family: cursive;
     font-size: larger;
-    color:#1f8611;
-    --background: green;
+    color:white;
+    --background: #33cccc;
 
 
 }
-*{
-  background-color: #33cccc;
-}
+// *{
+//   background-color: #33cccc;
+// }
 .card-title {
   font-size: 20;  
   font-weight: bold;
@@ -25,13 +25,10 @@
     padding: 20px;   
 
 }
-.btn-color {
-    --background: var(--ion-color-btn);
-    --background: #33cccc;
-  }
+
 
 .card-subtitle {
   font-size: 1.0em;  
-  color: #33cccc;
+  color: white;
   
 }

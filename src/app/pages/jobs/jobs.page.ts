@@ -7,7 +7,7 @@ import { ApiService} from '../services/api-service.service';
 import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.page.html',
@@ -30,7 +30,7 @@ item;
 
   ngOnInit() {
     this.user = this.data.getActiveUser();
-    this.item=this.route.snapshot.params['id'];
+    this.item=this.route.snapshot.params;
 
   }
 
@@ -48,11 +48,11 @@ item;
       console.log(this.jobs)
     });
   }
-removeJob(){
-  console.log(this.item.uid);
-  this.service._delete( 'jobs', this.item.uid);{
+removeJob(jobUid){
+  console.log(jobUid);
+  this.service._delete('jobs',jobUid);{
     this.fireStore.collection('jobs')
-    .doc(this.item.uid)
+    .doc("jobUid").ref
     .delete()
     .then( data => this.showToast("Job deleted"))
     .catch(error => this.showToast("error"+ error))
@@ -77,9 +77,29 @@ removeJob(){
   //   });
   // }
 
-  goToJob(){
-    const path=this.item.uid;
-    this.router.navigate(['/job/path'])
+  goToJob(jobdata){
+    console.log(jobdata);
+    // this.router.navigate(['/job/:jobdata'])
+    // let user={name:'Raja',age:20,email:'raja@mail.com'}
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: jobdata
+      }
+    };
+    this.router.navigate(['/job/about'], navigationExtras);
+
+  }
+  goToJobEdit(jobdata){
+    console.log(jobdata);
+    // this.router.navigate(['/job/:jobdata'])
+    // let user={name:'Raja',age:20,email:'raja@mail.com'}
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: jobdata
+      }
+    };
+    this.router.navigate(['/job/editjob'], navigationExtras);
+
   }
   goToAddjob(){
     this.router.navigate(['/addjob'])

@@ -9,7 +9,7 @@
     
   
 <ion-content >
-  <ion-card class="content">
+  <!-- <ion-card class="content"> -->
   
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <ion-card class="content">
@@ -41,15 +41,15 @@
   
       </ion-list>
       <small class="error">{{error}}</small>
-    <ion-button  type="submit"  shape="round" style="color:white" expand="block"> {{ btnText }} </ion-button>
+    <ion-button  type="submit"  class="title" shape="round" style="color:white" expand="round"> {{ btnText }} </ion-button>
   </ion-card>
   </form>    
-  <div text-center>
+  <div text-center class="middle">
     <small> Clicking create account means you have agreed to <b>Seeker</b> terms and conditions.</small>
   </div>
 
 
-</ion-card>
+<!-- </ion-card> -->
 </ion-content>
 <ion-footer>
   I have an account, <a (click)="goToLogin()"><b>Login</b></a>

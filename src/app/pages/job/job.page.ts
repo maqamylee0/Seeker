@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-job',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./job.page.scss'],
 })
 export class JobPage implements OnInit {
+item:any;
+  constructor(    
+    private route:ActivatedRoute,
+    private router:Router
 
-  constructor() { }
+    ) { }
 
   ngOnInit() {
+    // this.item=this.route.snapshot.params;
+    // if (this.router.getCurrentNavigation().extras.state) {
+    //   let job = this.router.getCurrentNavigation().extras.state.user;
+    //   console.log(job);
+      
+    // }
   }
 
   

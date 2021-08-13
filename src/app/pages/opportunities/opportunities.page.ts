@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService} from '../services/api-service.service';
 import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-opportunities',
@@ -22,7 +23,9 @@ jobs:any;
     public router:Router,
     public data:DataService,
     public toast:ToastController,
-    public fireStore:AngularFirestore
+    public fireStore:AngularFirestore,
+    private route:ActivatedRoute
+
   ) { }
 
   ngOnInit() {
@@ -61,8 +64,14 @@ jobs:any;
   //   });
   // }
 
-  goToJob(){
-    this.router.navigate(['/job-detail'])
+  goToJob(job){
+    const  jobdata=job;
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: jobdata
+      }
+    };
+    this.router.navigate(['/job-detail'], navigationExtras);
   }
 
 }

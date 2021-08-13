@@ -6,7 +6,7 @@ import { JobPageRoutingModule } from './job-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 import { JobPage } from './job.page';
 import { AboutPage } from './about/about.page';
-import { ApplicantsPage } from './applicants/applicants.page'
+import { EditJobPage } from './editjob/editjob.page'
 
 const routes: Routes = [
   {
@@ -23,11 +23,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'applicants',
+        path: 'editjob',
         children: [
           {
             path: '',
-            component:ApplicantsPage
+            component:EditJobPage
           }
         ]
       },
@@ -48,11 +48,7 @@ const routes: Routes = [
       
     ]
   },
-  {
-    path: '',
-    redirectTo: '/job/applicants',
-    pathMatch: 'full'
-  }
+  
 ];
 
 
@@ -63,6 +59,6 @@ const routes: Routes = [
     IonicModule,
     JobPageRoutingModule
   ],
-  declarations: [JobPage,AboutPage,ApplicantsPage]
+  declarations: [JobPage,AboutPage,EditJobPage]
 })
 export class JobPageModule {}

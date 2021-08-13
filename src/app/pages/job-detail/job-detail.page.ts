@@ -25,6 +25,7 @@ export class JobDetailPage implements OnInit {
   documentUrl=""
   processing = false;
   btnText1="Contact via phone"
+  jobdet:any;
 
   btnText2="Contact via Email"
     constructor(
@@ -41,19 +42,25 @@ export class JobDetailPage implements OnInit {
   
     ngOnInit() {
       this.user = this.data.getActiveUser();
+      // this.item=this.route.snapshot.params;
+    if (this.router.getCurrentNavigation().extras.state) {
+      this. jobdet = this.router.getCurrentNavigation().extras.state.user;
+      console.log(this.jobdet);
+      
+    }
     }
     ionViewWillEnter() {
-      this.fetchMyJob();
+      // this.fetchMyJob();
       
     }
   
-    fetchMyJob(){  
-      const where = {key: 'jobId', value: this.user.jobId }; 
-      console.log(this.user.jobId)   
-      this.service._get('jobs', where).subscribe(data => {
-        this.jobdetail = data.docs.map(doc => doc.data());
-      });
-    }
+    // fetchMyJob(){  
+    //   const where = {key: 'jobId', value: this.user.jobId }; 
+    //   console.log(this.user.jobId)   
+    //   this.service._get('jobs', where).subscribe(data => {
+    //     this.jobdetail = data.docs.map(doc => doc.data());
+    //   });
+    // }
   
     selectDocument(event) {
       this.documentFile = event.target.files[0];

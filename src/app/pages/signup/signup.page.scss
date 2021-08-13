@@ -4,12 +4,14 @@
 .content{
     background-color:white;
 }
-
+middle{
+margin-left: 30px;
+}
 .title{
     font-family: cursive;
     font-size: larger;
-    color:#1f8611;
-    --background: green;
+    color:white;
+    --background: #33cccc;
 }
 .activeType{
     background: #fff !important;
@@ -34,9 +36,7 @@
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-ion-content{
-    --ion-background-color:#33cccc;
-}
+
 
 .form{
     padding:20px;

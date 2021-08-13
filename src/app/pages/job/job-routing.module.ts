@@ -12,9 +12,10 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
   },
+  
   {
-    path: 'applicants',
-    loadChildren: () => import('./applicants/applicants.module').then( m => m.ApplicantsPageModule)
+    path: 'editjob',
+    loadChildren: () => import('./editjob/editjob.module').then( m => m.EditjobPageModule)
   },
   // {
   //   path: 'confirmed',

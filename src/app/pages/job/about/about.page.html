@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="favorite">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="jobs"></ion-back-button>
     </ion-buttons>
     <ion-title class="title"> <span style="color:#1f8611;"> Job Detail</span></ion-title>
 
@@ -9,14 +9,14 @@
 </ion-header>
 
 <ion-content class="ion-content">
-  <ion-item *ngFor="let jobdet of jobdetail" >
+  <ion-item  >
   <ion-card class="card">
     <ion-card-header>
       <div class="grid-container">
         <div class="grid-item"><ion-avatar>
           <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
         </ion-avatar></div>
-  <div class="grid-item"><ion-card-title class="card-title">{{jobdet.jobTitle}}</ion-card-title>
+  <div class="grid-item"><ion-card-title class="card-title">{{jobdet.name}}</ion-card-title>
   </div>
         
 
@@ -33,10 +33,10 @@
       <p> Email: {{ jobdet.email }}</p>
 
 
-    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText1}}</ion-button>
+    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block" (click)="deleteJob(jobdet.uid)">Delete</ion-button>
 
 
-    <ion-button  class="btn-color" type="submit"  shape="round" style="color:white" expand="block">{{btnText2}}</ion-button>
+    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block" (click)="goToEdit()">Edit</ion-button>
   
 </ion-card-content>
 

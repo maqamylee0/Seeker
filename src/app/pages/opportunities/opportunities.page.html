@@ -23,7 +23,7 @@
   </div>
   
   <ion-list lines="none">
-    <ion-card class="grid">
+    <!-- <ion-card class="grid"> -->
       <ion-item *ngFor="let job of jobs" class="grid">
         <ion-card class="grid">
           <ion-card-header class="header">
@@ -51,12 +51,12 @@
             <br>
             Email: {{ job.email }}
           </ion-card-content>
-          <ion-button class="btn-color" type="submit"(click)="goToJob()"  shape="block" style="--background:green" style="color:white" expand="block"> View</ion-button>
+          <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round" style="--background:green" style="color:white" expand="block"> View</ion-button>
         </ion-card>
         
         
       </ion-item>       
-    </ion-card>    
+    <!-- </ion-card>     -->
     
   </ion-list>
 </ion-content>

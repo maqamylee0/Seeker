@@ -1,7 +1,7 @@
 
-ion-content{
-  --ion-background-color: #33cccc;
-}
+// ion-content{
+//   --ion-background-color: #33cccc;
+// }
 .header{
   background-color: white;
 }
@@ -10,18 +10,21 @@ ion-content{
 }
 .grid{
   background-color: white;
+  border-radius: 15%;
+  padding: 20px;
+
 }
 .card-content{
   background-color: white;
 }
 .title{
-    font-family: cursive;
-    font-size: medium;
-    color:#1f8611;
-    --background: green;
-
-
+  font-family: cursive;
+  font-size: larger;
+  border-radius: 15%;
+  --background: #33cccc;
+  color:#1f8611;
 }
+
 .card-title {
   font-size: 10;  
   font-weight: bold;
@@ -43,10 +46,7 @@ ion-content{
   background-color: white;
 
 }
-.btn-color {
-    --background: var(--ion-color-btn);
-    --background: #33cccc;
-  }
+
 
 .card-subtitle {
   font-size: 1.0em;  
