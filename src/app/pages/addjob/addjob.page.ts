@@ -24,6 +24,7 @@ export class AddjobPage implements OnInit {
   documentUrl=""
   btnText = 'Add Job';
   processing = false;
+  ref:any;
   constructor(
     public firestore:AngularFireStorage,
     public service:ApiService,
@@ -53,7 +54,7 @@ export class AddjobPage implements OnInit {
     this.processing = true;
     this.btnDisabled = true;
     const job = form.value;
-    job.userId=this.user.uid;    
+    job.userId=this.user.uid;
     // console.log(job);
     const jobId= parseInt(job.jobId);
     const url = await this.upload(this.documentFile);
@@ -70,6 +71,8 @@ export class AddjobPage implements OnInit {
           this.processing = false;
           if ( result) {
             job.uid=result.id;
+            job.ref=this.ref;    
+
             console.log(job.uid);
             localStorage.setItem('activeJob', JSON.stringify(job));
 
@@ -115,8 +118,8 @@ export class AddjobPage implements OnInit {
   async upload(file) {
      console.log("here");
     const randomId = Math.random().toString(36).substring(2);
-    const ref = this.firestore.ref("documents/" + randomId);
-    const task = await ref.put(file);
+    this.ref = this.firestore.ref("documents/" + randomId);
+    const task = await this.ref.put(file);
     const downloadURL = await task.ref.getDownloadURL();
     return downloadURL;
   }

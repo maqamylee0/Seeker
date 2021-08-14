@@ -32,11 +32,12 @@
       <br>
       <p> Email: {{ jobdet.email }}</p>
 
+      <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="getJobpdf(jobdet.ref)">Click to get Job Pdf</ion-button>
 
-    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block">{{btnText1}}</ion-button>
+    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="callUser(jobdet.phone)">Contact Via phone</ion-button>
 
 
-    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block">{{btnText2}}</ion-button>
+    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="sendEmail(jobdet.email)">Contact via email</ion-button>
   
 </ion-card-content>
 

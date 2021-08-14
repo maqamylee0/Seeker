@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="profile"></ion-back-button>
     </ion-buttons>
-    <ion-title class="title"> <span style="color:#1f8611;"> Add Profile</span></ion-title>
+    <ion-title class="title"> <span style="color:#1f8611;"> Edit Job</span></ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -94,15 +94,20 @@
         </ion-card>
           
       
-            <ion-item>
-                <ion-label position="floating">Job Details</ion-label>
-                <input
-                type="file"
-                class="fileInput"
-                (change)="selectDocument($event)"
-              />
-              <label for="file"><ion-icon name="images"></ion-icon> Select </label>        </ion-item>
-            <br/> 
+        <ion-row>
+          <ion-col size="10">
+            <ion-label position="floating" class="word-color">Job Details</ion-label>
+
+              <ion-item>
+                  <input
+                    type="file"
+                    class="fileInput"
+                    (change)="selectDocument($event)"
+                  />
+                  
+                </ion-item>
+          </ion-col>
+        </ion-row>
     
            
             

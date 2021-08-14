@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { JobDetailPageRoutingModule } from './job-detail-routing.module';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { JobDetailPage } from './job-detail.page';
 
@@ -14,6 +17,11 @@ import { JobDetailPage } from './job-detail.page';
     FormsModule,
     IonicModule,
     JobDetailPageRoutingModule
+  ],
+  providers: [
+    InAppBrowser,
+    CallNumber,
+    EmailComposer 
   ],
   declarations: [JobDetailPage]
 })
