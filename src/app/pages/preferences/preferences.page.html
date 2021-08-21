@@ -5,17 +5,23 @@
       <ion-menu-button menu="main-menu">
       </ion-menu-button>
     </ion-buttons>
+    <ion-buttons (click)="goToLogin()" slot="end" *ngIf="user !== null">
+      <ion-button >
+        <ion-icon slot="icon-only" name="chevron-forward-circle-outline">Skip</ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="prefs">
-  <ion-card>
-    <h1 class="title" style="font:20px">Select your Area of Interest</h1>
+<ion-content class="prefs" >
+<ion-card *ngIf="user === null">
+  <ion-card *ngIf="user === null">
+    <h1 class="title" style="font:20px">Select our Area of Interest</h1>
   </ion-card>
 
-  <ion-card>
+  
 
-  <ion-list lines="none" >
+  <ion-list lines="none" *ngIf="user === null">
     <ion-item *ngFor="let profession of professions" >
       <ion-card class=small>
       <ion-button class="title" type="submit"(click)="onSubmit(profession)"  shape="round" style="color:white" expand="block"> {{ profession }}</ion-button>
@@ -27,6 +33,25 @@
 
   
   </ion-list>
+
 </ion-card>
+<ion-card *ngIf="user !== null">
+  <ion-list lines="none" >
+    <ion-card *ngIf="user !== null" >
+      <h1 class="title" style="font:20px"> Chosen Interests</h1>
+    </ion-card>
+    <ion-item  >
+      
+      <ion-card class=small>
+        <ion-button class="title" type="submit"  shape="round" style="color:white" expand="block"> {{ prof }}</ion-button>
+      </ion-card>
+
+    </ion-item>
+    
+  
+  </ion-list>
+
+</ion-card>  
+
 
 </ion-content>

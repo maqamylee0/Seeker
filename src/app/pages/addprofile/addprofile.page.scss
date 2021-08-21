@@ -41,12 +41,13 @@
    background-color: rgb(0, 225, 255)
 }
 
-.background{
-    background-color:#33cccc ;
-}
+// .background{
+//     background-color:#33cccc ;
+// }
 .title{
     font-family: cursive;
     font-size: larger;
-    --background: green;
-    border-color: green;
+    --background: #33cccc;
+    color:#1f8611;
+    border-left: 400px;
 }

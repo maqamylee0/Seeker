@@ -7,10 +7,7 @@ const routes: Routes = [
   
   { path: '',redirectTo: 'home', pathMatch: 'full'
   },
-  {
-    path: 'tab-bars',
-    loadChildren: () => import('./pages/tab-bars/tab-bars.module').then( m => m.TabBarsPageModule)
-  },
+  
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
@@ -27,10 +24,7 @@ const routes: Routes = [
     path: 'opportunities',
     loadChildren: () => import('./pages/opportunities/opportunities.module').then( m => m.OpportunitiesPageModule)
   },
-  {
-    path: 'myapplications',
-    loadChildren: () => import('./pages/myapplications/myapplications.module').then( m => m.MyapplicationsPageModule)
-  },
+  
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
@@ -54,6 +48,10 @@ const routes: Routes = [
   {
     path: 'jobs',
     loadChildren: () => import('./pages/jobs/jobs.module').then( m => m.JobsPageModule)
+  },
+  {
+    path: 'alljobs',
+    loadChildren: () => import('./pages/alljobs/alljobs.module').then( m => m.AlljobsPageModule)
   }
 
 

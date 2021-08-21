@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { JobsPageRoutingModule } from './jobs-routing.module';
 
 import { JobsPage } from './jobs.page';
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 @NgModule({
   imports: [
@@ -15,6 +18,7 @@ import { JobsPage } from './jobs.page';
     IonicModule,
     JobsPageRoutingModule
   ],
+  providers: [File,DocumentViewer,FileTransfer],
   declarations: [JobsPage]
 })
 export class JobsPageModule {}

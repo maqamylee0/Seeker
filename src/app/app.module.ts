@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [AngularFireModule.initializeApp(environment.firebase,'Seeker'),
+  imports: [AngularFireModule.initializeApp(environment.firebase,'Seeker2'),
   AngularFirestoreModule, // firestore
   AngularFireAuthModule, // auth
   AngularFireStorageModule ,// storage
@@ -24,7 +24,7 @@ import { environment } from 'src/environments/environment';
   CommonModule,
   IonicModule.forRoot(), 
   AppRoutingModule],
-   
+
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

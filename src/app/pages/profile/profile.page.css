@@ -16,26 +16,6 @@
 .floatingbtn {
   height: 55px;
   width: 55px;
-  position: relative;
-  z-index: 100;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  left: 260px;
-  bottom: -20px;
-  border-radius: 50px;
-  background-color: #e94f69;
-}
-
-.floatingbn {
-  height: 55px;
-  width: 55px;
   z-index: 100;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -47,9 +27,29 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  bottom: -40px;
+  bottom: 40px;
   left: 10px;
   background-color: #00e1ff;
+}
+
+.floatingbn {
+  height: 55px;
+  width: 55px;
+  position: relative;
+  z-index: 100;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 300px;
+  bottom: 18px;
+  border-radius: 50px;
+  background-color: #e94f69;
 }
 
 .shopName {
@@ -72,8 +72,9 @@
 .title {
   font-family: cursive;
   font-size: larger;
-  --background: green;
+  --background: #33cccc;
   color: #1f8611;
+  border-left: 400px;
 }
 
 .word-color {

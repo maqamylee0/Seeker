@@ -17,9 +17,19 @@
       <ion-item>
         <ion-label position="floating" class="word-color">Job Type</ion-label>
         <ion-select ngModel  name="jobId" required>
-          <ion-select-option  value="1">Software Developer</ion-select-option>
-          <ion-select-option  value="2">Nurse</ion-select-option>
-          <ion-select-option  value="3">painter</ion-select-option>     
+          <ion-select-option  value="1">Technology </ion-select-option>
+          <ion-select-option  value="2">Health Sciences</ion-select-option>
+          <ion-select-option  value="3">Architecture and Construction</ion-select-option>
+          <ion-select-option  value="4">Agriculture</ion-select-option>     
+          <ion-select-option  value="5">Education</ion-select-option>     
+          <ion-select-option  value="6">Business and Finance</ion-select-option>     
+          <ion-select-option  value="7">Entertainment</ion-select-option>     
+          <ion-select-option  value="8">Marketing</ion-select-option>     
+          <ion-select-option  value="9">Food and Beverages</ion-select-option>     
+          <ion-select-option  value="10">Physical Fitness and Exercises</ion-select-option>     
+          <ion-select-option  value="11">Household help</ion-select-option>     
+          <ion-select-option  value="12">Other</ion-select-option>     
+     
         </ion-select>
       </ion-item>
     </ion-card>
@@ -55,11 +65,26 @@
         </ion-item>
       </ion-card>
 
+      <ion-card>
+
+        <ion-item>
+            <ion-label position="floating" class="word-color">Salary</ion-label>
+            <ion-input type="number" ngModel name="salary"  placeholder="amount"></ion-input>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+
+        <ion-item>
+            <ion-label position="floating" class="word-color">Experience</ion-label>
+            <ion-input type="text" ngModel name="experience"  placeholder="basic,intermediary or expert "></ion-input>
+        </ion-item>
+      </ion-card>
+
             <ion-card>
   
         <ion-item>
           <ion-label position="floating" class="word-color">Company</ion-label>
-          <ion-input type="email" ngModel name="company"  placeholder="Who is hiring"></ion-input>
+          <ion-input type="text" ngModel name="company"  placeholder="Who is hiring"></ion-input>
       </ion-item>
     </ion-card>
       
@@ -94,6 +119,6 @@
         
      
     </ion-list>
-    <ion-button class="title" type="submit"  shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
+    <ion-button class="title" type="submit" shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
   </form>
 </ion-content>

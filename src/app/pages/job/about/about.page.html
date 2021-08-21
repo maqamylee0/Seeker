@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="jobs"></ion-back-button>
     </ion-buttons>
-    <ion-title class="title"> <span style="color:#1f8611;"> Job Detail</span></ion-title>
+    <ion-title class="title"> <span style="color:#1f8611;"> My Job Detail</span></ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -32,6 +32,7 @@
       <br>
       <p> Email: {{ jobdet.email }}</p>
 
+      <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="openPdf()">Download and open Job details pdf</ion-button>
 
     <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block" (click)="deleteJob(jobdet.uid)">Delete</ion-button>
 

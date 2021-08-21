@@ -30,25 +30,29 @@ item;
 
   ngOnInit() {
     this.user = this.data.getActiveUser();
-    this.item=this.route.snapshot.params;
+    //this.jobs = this.data.getActiveJob();
+     console.log(this.user)
+     //this.jobs=JSON.parse(localStorage.getItem('activeJob'));
+
 
   }
 
   ionViewWillEnter() {
     this.fetchMyJobs();
+
   }
 
-  fetchMyJobs(){  
+  fetchMyJobs(){   
     console.log(this.user.uid);
-    const where = {key: 'userId', value: this.user.uid };
-    // console.log(this.user.userId);
-  
-    this.service._get('jobs', where).subscribe(data => {
-      this.jobs = data.docs.map(doc => doc.data());
-      console.log(this.jobs)
+   const where = {key:'userId', value: this.user.uid };    
+   this.service._get('jobs', where).subscribe( data => {
+    this.jobs = data.docs.map(doc => doc.data());
+      console.log(this.jobs);
     });
+    
   }
-removeJob(jobUid){
+  
+   removeJob(jobUid){
   console.log(jobUid);
   this.service._delete('jobs',jobUid);{
     this.fireStore.collection('jobs')
@@ -57,9 +61,19 @@ removeJob(jobUid){
     .then( data => this.showToast("Job deleted"))
     .catch(error => this.showToast("error"+ error))
   }
-
-
 }
+//   this.fireStore.collection("users")
+// .doc(jobUid)
+// .delete()
+// .then(function () { 
+//     console.log("Document successfully deleted!"); 
+// }).catch(
+//     function(error) { 
+//     console.error("Error removing document: ", error); 
+// });
+
+  // }
+
    
   async showToast(message) {
     const toast = await this.toast.create({
@@ -69,18 +83,10 @@ removeJob(jobUid){
     toast.present();
   }
 
-  // actOnOrder(status, order) {
-  //   // console.log(status, appointment);
-  //   this.service._edit('jobs', o, status, async (result) => {
-  //     await this.showToast(`Confirmation done`);
-  //     this.fetchMyJobs();
-  //   });
-  // }
-
+  
   goToJob(jobdata){
     console.log(jobdata);
     // this.router.navigate(['/job/:jobdata'])
-    // let user={name:'Raja',age:20,email:'raja@mail.com'}
     let navigationExtras: NavigationExtras = {
       state: {
         user: jobdata
@@ -91,9 +97,7 @@ removeJob(jobUid){
   }
   goToJobEdit(jobdata){
     console.log(jobdata);
-    // this.router.navigate(['/job/:jobdata'])
-    // let user={name:'Raja',age:20,email:'raja@mail.com'}
-    let navigationExtras: NavigationExtras = {
+      let navigationExtras: NavigationExtras = {
       state: {
         user: jobdata
       }

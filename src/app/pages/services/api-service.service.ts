@@ -11,10 +11,14 @@ export class ApiService {
 
 
   _get(collection, where = null) {
+
     if ( where !== null ) {
-      return this.fireStore.collection(collection, ref => ref.where(where.key, '==', where.value).orderBy('timeStamp', 'desc')).get();
+      return this.fireStore.collection(collection, 
+        ref => ref.where(where.key, '==', where.value).orderBy('timeStamp', 'desc'))
+        .get();
     } else {
-      return this.fireStore.collection(collection, ref => ref.orderBy('timeStamp', 'desc')).get();
+      return this.fireStore.collection(collection, 
+        ref => ref.orderBy('timeStamp', 'desc')).get();
     }
   }
    // method  to get a single collection from database 
@@ -29,9 +33,9 @@ export class ApiService {
     data.timeStamp = + new Date();
     this.fireStore.collection(collection).add(data)
     .then( (ref) => {
-      const id = ref.id;
-      data.id = id;
-      this._edit(collection, id, {id});
+      const uid = ref.id;
+      data.uid = uid;
+      this._edit(collection, uid, {uid});
       callback({flag: true, data});
    }).catch( error => callback({flag: false, error}));
   }
@@ -46,14 +50,21 @@ export class ApiService {
    }).catch( error => callback({flag: false, error}));
   }
 
-  //addJob
-  _addJob(collection, data, callback) {
-    data.timeStamp = + new Date();
-    this.fireStore.collection(collection).doc(data.uid).set(data)
-    .then( (ref) => {
-      callback({flag: true, data});
-   }).catch( error => callback({flag: false, error}));
-  }
+  addJob
+   _addJob(collection, data, callback) {
+      this.fireStore.collection(collection).add(data)
+      .then( (ref) => {
+        const id = ref.id;
+        data.id = id;
+        this._edit(collection, id, {id}, );
+        callback({flag: true, data});
+     }).catch( error => callback({flag: false, error}));
+    }
+  //   this.fireStore.collection(collection).doc(data.uid).set(data)
+  //   .then( (ref) => {
+  //     callback({flag: true, data});
+  //  }).catch( error => callback({flag: false, error}));
+  // }
 
   //add Profile
   _addProfile(collection, data, callback) {

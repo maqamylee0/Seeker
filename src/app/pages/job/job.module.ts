@@ -31,15 +31,7 @@ const routes: Routes = [
           }
         ]
       },
-      // {
-      //   path: 'confirmed',
-      //   children: [
-      //     {
-      //       path: '',
-      //       component:ConfirmedPage
-      //     }
-      //   ]
-      // },
+      
       {
        path: '',
        redirectTo: '/job/about',
@@ -59,6 +51,6 @@ const routes: Routes = [
     IonicModule,
     JobPageRoutingModule
   ],
-  declarations: [JobPage,AboutPage,EditJobPage]
+  declarations: [JobPage]
 })
 export class JobPageModule {}

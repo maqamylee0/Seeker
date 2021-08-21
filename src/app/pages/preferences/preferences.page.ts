@@ -14,8 +14,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./preferences.page.scss'],
 })
 export class PreferencesPage implements OnInit {
- user:any
-  professions=["Software Developer","Painter","Nurse","Teacher","Dancers","Househelp","Carpenter","Cheff","Builder","Pilot","Cloud Architect","Cyber Security","Mechanic"]
+ user:any;
+ jobId:any;
+ prof:any;
+  professions=["Technology","Health Sciences","Architecture and Construction","Agriculture","Education","Business and Finance","Entertainement","Marketing","Food and Beverages","Sports","Household help","Other"];
 
   constructor(
     public service:ApiService,
@@ -28,61 +30,110 @@ export class PreferencesPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.user = this.data.getActiveUser();
-console.log(this.user);
   }
+  ionViewWillEnter() {
+    this.fetchprof();
+
+  }
+//if(this.jobId !== null){
+  fetchprof(){
+    if(this.user !== null)
+  this.jobId=this.user.jobId;
+
+switch(this.jobId){
+  case "1":
+   this.prof ="Technology";
+  break;
+  case "2":
+   this.prof ="Health Sciences";
+      break;
+  case "3":
+    this.prof ="Architecture and Construction";
+    break;
+  case "4":
+      this.prof ="Agriculture";
+      break;
+  case "5":
+      this.prof ="Education";
+        break;
+  case "6":
+      this.prof ="Business and Finance";
+        break;
+      case "7":
+      this.prof ="Entertainment";
+      break;
+      case "8":
+      this.prof ="Marketing";
+      break;
+      case "9":
+       this.prof ="Food and Beverages";
+      break;
+      case "10":
+      this.prof ="Sports";
+        break;
+        case "11":
+      this.prof ="Household help";
+        break;
+        case "12":
+      this.prof ="Other";
+        break;
+      }
+    }
   onSubmit(profession){
     console.log(profession);
     switch(profession){
-     case"Software Developer":
+     case"Technology":
         this.setJobId(1)
         break;
-        case"Nurse":
+        case"Health Sciences":
         this.setJobId(2)
         break;
-        case"Painter":
+        case"Architecture and Construction":
         this.setJobId(3)
         break;
-        case"Househelp":
+        case"Agriculture":
+        this.setJobId(4)
+        break;
+        case"Education":
         this.setJobId(5)
         break;
-        case"Teacher":
+        case"Business and Finance":
         this.setJobId(6)
         break;
-        case"Dancers":
+        case"Law":
         this.setJobId(7)
         break;
-        case"Carpenter":
+        case"Marketing":
         this.setJobId(8)
         break;
-        case"CyberSecurity":
+        case"Food and Beverages":
         this.setJobId(9)
         break;
-        case"Cheff":
+        case"Sports":
         this.setJobId(10)
         break;
-        case"Cloud Architect":
+        case"Household Help":
         this.setJobId(11)
         break;
-        case"Mechanic":
+        case"Other":
         this.setJobId(12)
         break;
-        case"Pilot":
-        this.setJobId(13)
-        break;
         case"Builder":
-        this.setJobId(14)
+        this.setJobId(13)
         break;
     }
     
   }
+  
   setJobId(jobId){
-    const data={'jobId':jobId}; 
-    console.log(this.user.id);
-    console.log(data);  
+    // const data={'jobId':jobId}; 
+    // console.log(this.user.id);
+    // console.log(data);  
     // this.service._edit('users', this.user.uid, data, async (result) => {
     // await this.showToast(`Preference added`);
-     localStorage.setItem('jobId', jobId);
+     localStorage.setItem('jobId',jobId);
     // });
   //   this.service._edit('users', this.user.id, data, callback=>{});{      
   //     this.fireStore.collection('users')
@@ -108,5 +159,9 @@ console.log(this.user);
       duration: 2000
     });
     toast.present();
+  }
+  goToLogin(){
+    this.router.navigate(['/login'])
+
   }
 }

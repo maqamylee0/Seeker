@@ -18,7 +18,8 @@ btnDisabled=true;
 jobdet:any;
 user:any;
 my_job:any;
-
+documentFile:any;
+documentUrl:any;
   constructor(
     private router:Router,
     public data:DataService,
@@ -69,7 +70,16 @@ editJob(form){
     )
     }
   }
-
+  selectDocument(event) {
+    this.documentFile = event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.documentUrl = event.target.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
 async presentToast() {
   const toast = await this.toast.create({
     message: 'Job Edited',

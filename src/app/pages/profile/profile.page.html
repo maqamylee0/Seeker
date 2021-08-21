@@ -6,17 +6,18 @@
     <ion-title class="title"> <span style="color:#1f8611;"> My Profile</span></ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
 
-  <ion-card>
-    <div class="empty"  *ngIf="user === null">
+    <div class="empty"  *ngIf="user == null">
       <ion-icon name="notifications"></ion-icon>     
       <h1>No profile Yet!</h1>      
         <!-- <div class="floatingbtn"> -->
           <ion-button class="title"  shape="block" style="color:white"(click)="gotoAddProfile()" >Add Profile</ion-button>
-
           
     </div>
+    <ion-card>
+
     <ion-card-header class="card-head" *ngIf="user !== null">
       <!-- <img [src]="shop.img" height="200px" style="width: 100%" alt=""  /> -->
       <ion-button class="title"  shape="block" style="color:white" (click)="editProfile()" >{{ btntext }}</ion-button>
@@ -29,8 +30,8 @@
         ></ion-icon>
       </div>
       <ion-card class="floatingbn">
-        <ion-card-content>
-          <ion-button class="title"  shape="block" style="color:white" (click)="signOut()" >logout</ion-button>
+        <ion-card-content >
+          <ion-button  class="title"shape="round" style="color:white" (click)="signOut()" >logout</ion-button>
 
         </ion-card-content>
       </ion-card>
@@ -147,7 +148,7 @@
             <h2 class="word-color">Website Link</h2>
             <!-- <p>Emmilly</p> -->
 
-            <p>{{user.email}}</p>
+            <p>{{user.website}}</p>
           </ion-label>
           <ion-icon 
             slot="end"
@@ -160,7 +161,7 @@
             <h2 class="word-color">Medium Link</h2>
             <!-- <p>Emmilly</p> -->
 
-            <p>{{user.email}}</p>
+            <p>{{user.medium}}</p>
           </ion-label>
           <ion-icon 
             slot="end"
@@ -173,7 +174,7 @@
             <h2 class="word-color">Facebook Link</h2>
             <!-- <p>Emmilly</p> -->
 
-            <p>{{user.email}}</p>
+            <p>{{user.facebook}}</p>
           </ion-label>
           <ion-icon 
             slot="end"
@@ -186,7 +187,7 @@
             <h2 class="word-color">Other Link</h2>
             <!-- <p>Emmilly</p> -->
 
-            <p>{{user.email}}</p>
+            <p>{{user.other}}</p>
           </ion-label>
           <ion-icon 
             slot="end"

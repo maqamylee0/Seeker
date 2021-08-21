@@ -21,7 +21,7 @@
 
           
     </div>
-  <ion-list lines="none">
+  <ion-list lines="none"*ngIf="jobs?.length !== 0" >
     
     
     <ion-item *ngFor="let job of jobs" >
@@ -50,7 +50,6 @@
         </ion-card-content>
         
         <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round"  expand="block"  > View</ion-button>
-        <ion-icon name="remove-circle"></ion-icon>
         <ion-button class="title" type="submit"(click)="goToJobEdit(job)"  shape="round"  expand="block"  > Edit</ion-button>
 
         <ion-button class="title" type="submit"  shape="block"  expand="round" (click)="removeJob(job.uid)"> Delete Job</ion-button>

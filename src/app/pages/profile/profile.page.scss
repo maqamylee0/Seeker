@@ -4,6 +4,7 @@
 
 }
 
+
 .fab-icon{ 
     float: right;
     margin-left: 220px;
@@ -35,10 +36,11 @@ height: 55px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    left: 300px;
+    left: 250px;
     bottom: 18px;
     border-radius: 50px;
-    background-color: rgb(233, 79, 105);
+    --background: #33cccc;
+
 }
 .shopName{
     

@@ -1,0 +1,35 @@
+
+.title{
+    font-family: cursive;
+    font-size: larger;
+    color:white;
+    --background: #33cccc;
+
+
+}
+// *{
+//   background-color: #33cccc;
+// }
+.card-title {
+  font-size: 20;  
+  font-weight: bold;
+  color: green;
+  padding: 20px;
+  font-family: cursive;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
+    background: white;
+    width: 500px;
+    height: 100%;   
+
+}
+
+
+.card-subtitle {
+  font-size: 1.0em;  
+  color: white;
+  
+}

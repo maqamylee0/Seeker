@@ -24,7 +24,6 @@ export class AddjobPage implements OnInit {
   documentUrl=""
   btnText = 'Add Job';
   processing = false;
-  ref:any;
   constructor(
     public firestore:AngularFireStorage,
     public service:ApiService,
@@ -37,6 +36,34 @@ export class AddjobPage implements OnInit {
   ngOnInit() {
     this.user = this.data.getActiveUser();
   }
+  
+  
+  
+  async addJob(form) {
+    this.btnText = 'Please wait ... ';
+    this.processing = true;
+    this.btnDisabled = true;
+    const job = form.value;
+    const ref = await this.upload(this.documentFile);
+
+    job.userId=this.user.uid;
+    job.ref=ref;
+    console.log(job);
+
+    this.fireStore.collection('jobs').add(job)
+    .then( (ref) => {
+      job.timeStamp = + new Date();
+      const uid = ref.id;
+      job.uid = uid;
+      this.btnText = 'Add Job';
+      this.btnDisabled = false;
+      this.service._edit('jobs', uid, job);      
+       this.presentToast()
+        localStorage.setItem('activeJob', JSON.stringify(job));
+        this.router.navigate(['/jobs'])
+   }).catch( error =>    alert(error.message));
+   
+  }
   selectDocument(event) {
     this.documentFile = event.target.files[0];
     if (event.target.files && event.target.files[0]) {
@@ -47,46 +74,46 @@ export class AddjobPage implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
+  async upload(file) {
+    console.log("here");
+   const randomId = Math.random().toString(36).substring(2);
+   const ref = this.firestore.ref("documents/" + randomId);
+   const task = await ref.put(file);
+   const downloadURL = await task.ref.getDownloadURL();
+   return downloadURL;
+ }
+  //   this.service._add('jobs', job, ( result ) => {
+  //     this.btnText = 'Add Job';
+  //     this.btnDisabled = false;
+  //     if (result.flag ) {
+  //       this.presentToast()
+  //       localStorage.setItem('activeJob', JSON.stringify(result.data));
+  //       this.router.navigate(['/jobs'])
+  //     } else {
+  //     }
+  //   });
+  // }
+
+  //    this.service._addJob('jobs', job, ( result ) => {
+      
+  //         this.btnText = 'Adding Job..';
+  //         this.processing = false;
+  //         if ( result) {           
+
+  //           console.log(job);
+  //           localStorage.setItem('activeJob', JSON.stringify(job));
+
+  //             this.addBtnClicked();
+  //             this.presentToast()
+  //             this.goTojob();
+  //            // this.editJob();
+
+  //         } else {
+  //           alert(result.error.message);
+  //         }
+  //    });
+  // }
   
-  
-  async addJob( form ) {
-    this.btnText = 'Please wait ... ';
-    this.processing = true;
-    this.btnDisabled = true;
-    const job = form.value;
-    job.userId=this.user.uid;
-    // console.log(job);
-    const jobId= parseInt(job.jobId);
-    const url = await this.upload(this.documentFile);
-     this.service._addjob('jobs', job, ( result ) => {
-      console.log(result.id);
-//       this.fireStore.collection('jobs').add(job)
-// .then(     (result)=>{      console.log(result.id);}
-
-// //     console.log("Document written with ID: ", docRedocReff.id);
-// )
-// .catch(error => console.error("Error adding document: ", error))
-// }
-          this.btnText = 'Adding Job..';
-          this.processing = false;
-          if ( result) {
-            job.uid=result.id;
-            job.ref=this.ref;    
-
-            console.log(job.uid);
-            localStorage.setItem('activeJob', JSON.stringify(job));
-
-              this.addBtnClicked();
-              this.presentToast()
-              this.goTojob();
-              this.editJob();
-
-          } else {
-            alert(result.error.message);
-          }
-      });
-    
-  }
   editJob(){
     const myjob=JSON.parse(localStorage.getItem('activeJob'));
     console.log(myjob);    
@@ -106,6 +133,7 @@ export class AddjobPage implements OnInit {
     )
     }
      }
+     
   
   addBtnClicked() {
     this.openForm = !this.openForm;
@@ -115,14 +143,7 @@ export class AddjobPage implements OnInit {
 
   }
 
-  async upload(file) {
-     console.log("here");
-    const randomId = Math.random().toString(36).substring(2);
-    this.ref = this.firestore.ref("documents/" + randomId);
-    const task = await this.ref.put(file);
-    const downloadURL = await task.ref.getDownloadURL();
-    return downloadURL;
-  }
+ 
   async presentToast() {
     const toast = await this.toast.create({
       message: 'Job added',

@@ -1,13 +1,16 @@
 <ion-header>
   
-  <ion-toolbar color="favorite">    
+  <ion-toolbar color="favorite"> 
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="preferences"></ion-back-button>
+    </ion-buttons>   
     <ion-title class="title"> Login</ion-title>    
   </ion-toolbar>
 </ion-header> 
 
  
 
-<ion-conent >
+<ion-content >
     <ion-card>
         <form  class="form" #form="ngForm" (ngSubmit)="onSubmit(form)">
           <h2 class="title">Login</h2>
@@ -43,10 +46,10 @@
       </ion-card>
       
 
-    </ion-conent>
+    </ion-content>
     
   <ion-footer text-center padding>
-  I have no  account,<a (click)="goToSignup()"><b>Sign Up</b></a>
+  I have no  account,<ion-button class="title" (click)="goToSignup()"><b>Sign Up</b></ion-button>
   </ion-footer>
   
   

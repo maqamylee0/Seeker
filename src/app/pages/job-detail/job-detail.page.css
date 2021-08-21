@@ -1,5 +1,4 @@
 .ion-content {
-  background-color: #33cccc;
   padding: 20px;
 }
 
@@ -19,22 +18,23 @@
 
 .card {
   border-radius: 15%;
-  background-color: gold;
+  background-color: white;
   font-family: cursive;
   width: 90%;
   padding: 20px;
 }
 
-.btn-color {
-  --background: var(--ion-color-btn);
-  --background: green;
+.grid-container {
+  display: -ms-grid;
+  display: grid;
 }
 
 .title {
   font-family: cursive;
   font-size: larger;
-  --background: green;
+  --background: #33cccc;
   color: #1f8611;
+  border-left: 400px;
 }
 
 .card-subtitle {

@@ -15,7 +15,16 @@ import { NavigationExtras } from '@angular/router';
 })
 export class OpportunitiesPage implements OnInit {
 user:any;
-jobs:any;
+
+
+jobs:{email: string;
+  company: String;
+  description: String;
+  jobTitle: String;
+  Description: String;}[]=[];
+job_id:any;
+item:any;
+
   constructor(
     public fireAuth:AngularFireAuth,
     public firestore:AngularFireStorage,
@@ -33,21 +42,29 @@ jobs:any;
   }
 
   ionViewWillEnter() {
-    this.fetchMyJobs();
+    this.fetchJobs();
   }
 
-  fetchMyJobs(){  
-    console.log(this.user.jobId);
-    const where = {key: 'jobId', value: this.user.jobId };
-    console.log(this.user.jobId);
-  
+  fetchJobs(){  
+    const where = { key: 'jobId', value:this.user.jobId  };
+    
     this.service._get('jobs', where).subscribe(data => {
-      this.jobs = data.docs.map(doc => doc.data());
-      console.log(this.jobs)
-    });
+      this.item = data.docs.map(doc => doc.data());
+    this.item.forEach(element => {
+   if(element.userId !== this.user.uid){
+     this.jobs.push(element);
+  
+   }
+    
+  });
+console.log(this.jobs)
+ });
+   // });
+   console.log(this.jobs)
+
   }
 
-   
+  
   async showToast(message) {
     const toast = await this.toast.create({
       message,
@@ -56,13 +73,7 @@ jobs:any;
     toast.present();
   }
 
-  // actOnOrder(status, order) {
-  //   // console.log(status, appointment);
-  //   this.service._edit('jobs', o, status, async (result) => {
-  //     await this.showToast(`Confirmation done`);
-  //     this.fetchMyJobs();
-  //   });
-  // }
+ 
 
   goToJob(job){
     const  jobdata=job;
@@ -73,5 +84,10 @@ jobs:any;
     };
     this.router.navigate(['/job-detail'], navigationExtras);
   }
-
+goToPreferences(){
+  this.router.navigate(['/preferences']);
+}
+goToAddjob(){
+  this.router.navigate(['/addjob']);
+}
 }

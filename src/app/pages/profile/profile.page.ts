@@ -14,9 +14,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ProfilePage implements OnInit {
 user:any;
+user1:any;
 openForm: boolean = false;
   btntext="Edit";
-  
+  error:any;
 
   constructor(
     public fireAuth:AngularFireAuth,
@@ -29,13 +30,36 @@ openForm: boolean = false;
   ) { }
 
   ngOnInit() {
-     this.user = JSON.parse(localStorage.getItem('activeUser'));
-
-    // this.user = this.data.getActiveUser();
-    console.log(this.user);
-   
-
+     this.user = this.data.getActiveUser();
+     console.log(this.user1)
+      // this.user1 = JSON.parse(localStorage.getItem('activeUser'));
+     if (this.router.getCurrentNavigation().extras.state) {
+      this. user = this.router.getCurrentNavigation().extras.state.user;
+      console.log(this.user);
     
+
+    }}
+
+  
+  
+  ionViewWillEnter() {
+    this.fetchProfile();
+  }
+
+
+  fetchProfile(){  
+      console.log(this.user1.uid);
+
+    this.service._getOne('users', this.user1.uid).subscribe( result => {
+    if ( result.exists ) {
+      this.user = result.data(); 
+      console.log(this.user);
+    
+    } else {      
+      this.error = 'User not found here';
+    }
+});
+
   }
   gotoAddProfile(){
     this.router.navigate(['addprofile']);

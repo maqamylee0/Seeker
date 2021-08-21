@@ -1,3 +1,14 @@
+ion-content {
+  --ion-background-color:#33cccc;
+}
+
+.title {
+  font-family: cursive;
+  font-size: larger;
+  color: white;
+  --background: #33cccc;
+}
+
 .form {
   text-align: center;
   display: -webkit-box;

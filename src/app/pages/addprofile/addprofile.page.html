@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="favorite">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="profile"></ion-back-button>
+      <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
     <ion-title class="title"> <span style="color:#1f8611;"> Add Profile</span></ion-title>
   </ion-toolbar>
@@ -24,9 +24,18 @@
           <ion-item>
             <ion-label position="floating" style="color:green">Job Type</ion-label>
             <ion-select ngModel  name="jobId" required>
-              <ion-select-option  value="1">Software Developer</ion-select-option>
-              <ion-select-option  value="2">Nurse</ion-select-option>
-              <ion-select-option  value="3">painter</ion-select-option>     
+              <ion-select-option  value="1">Technology </ion-select-option>
+          <ion-select-option  value="2">Health Sciences</ion-select-option>
+          <ion-select-option  value="3">Architecture and Construction</ion-select-option>
+          <ion-select-option  value="4">Agriculture</ion-select-option>     
+          <ion-select-option  value="5">Education</ion-select-option>     
+          <ion-select-option  value="6">Business and Finance</ion-select-option>     
+          <ion-select-option  value="7">Entertainment</ion-select-option>     
+          <ion-select-option  value="8">Marketing</ion-select-option>     
+          <ion-select-option  value="9">Food and Beverages</ion-select-option>     
+          <ion-select-option  value="10">Physical Fitness and Exercises</ion-select-option>     
+          <ion-select-option  value="11">Household help</ion-select-option>     
+          <ion-select-option  value="12">Other</ion-select-option>       
             </ion-select>
           </ion-item>
         </ion-card>
@@ -90,6 +99,38 @@
               <ion-input type="text" ngModel name="linkedIn"  placeholder="linkedIn profile link"></ion-input>
           </ion-item>
         </ion-card>
+
+        <ion-card>
+
+          <ion-item>
+            <ion-label position="floating" style="color:green">WebsiteLink Link</ion-label>
+            <ion-input type="text" ngModel name="website"  placeholder="website link"></ion-input>
+        </ion-item>
+      </ion-card>
+
+      <ion-card>
+
+        <ion-item>
+          <ion-label position="floating" style="color:green">Medium Link</ion-label>
+          <ion-input type="text" ngModel name="medium"  placeholder="medium link"></ion-input>
+      </ion-item>
+    </ion-card>
+
+    <ion-card>
+
+      <ion-item>
+        <ion-label position="floating" style="color:green">Facebook Link</ion-label>
+        <ion-input type="text" ngModel name="facebook"  placeholder="facebook link"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-label position="floating" style="color:green">other  Link</ion-label>
+      <ion-input type="text" ngModel name="other"  placeholder="other link"></ion-input>
+  </ion-item>
+</ion-card>
           
       
             <!-- <ion-item>

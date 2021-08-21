@@ -43,16 +43,16 @@
       <small class="error">{{error}}</small>
     <ion-button  type="submit"  class="title" shape="round" style="color:white" expand="round"> {{ btnText }} </ion-button>
   </ion-card>
+  <ion-button  type="submit"  class="title" shape="round" style="color:white" (click)="goToPreferences()" expand="round"> Select Preferences before SignUp </ion-button>
+
   </form>    
-  <div text-center class="middle">
-    <small> Clicking create account means you have agreed to <b>Seeker</b> terms and conditions.</small>
-  </div>
+  
 
 
 <!-- </ion-card> -->
 </ion-content>
 <ion-footer>
-  I have an account, <a (click)="goToLogin()"><b>Login</b></a>
+  I have an account, <ion-button class="title" (click)="goToLogin()"><b>Login</b></ion-button>
 </ion-footer>
 
 

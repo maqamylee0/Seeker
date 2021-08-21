@@ -7,7 +7,9 @@ import { DataService } from '../../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras } from '@angular/router';
-
+import { File } from '@ionic-native/file/ngx';
+import{FileTransfer} from '@ionic-native/file-transfer/ngx';
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 
 @Component({
   selector: 'app-about',
@@ -25,7 +27,12 @@ jobdet:any;
     public data:DataService,
     public toast:ToastController,
     public fireStore:AngularFirestore,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private file:File,
+      private document: DocumentViewer,
+      private transfer: FileTransfer
+  
+
 
   ) { }
 
@@ -52,6 +59,14 @@ jobdet:any;
     };
     this.router.navigate(['/job/editjob'], navigationExtras);
 
+  }
+  openPdf(){
+    let path=this.file.dataDirectory;
+    const transfer=this.transfer.create();
+    transfer.download(this.jobdet.ref,path+'myfile.pdf').then(entry=>{
+      let url=entry.toURL();
+      this.document.viewDocument(url,'application/pdf',{});
+    })
   }
   deleteJob(jobUid){
     console.log(jobUid);

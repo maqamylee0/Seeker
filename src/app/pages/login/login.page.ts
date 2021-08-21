@@ -25,6 +25,8 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    localStorage.clear();
+
   }
   onSubmit(form) {
     this.btnText = 'Please wait ...';

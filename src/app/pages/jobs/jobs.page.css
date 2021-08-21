@@ -1,14 +1,14 @@
 .title {
   font-family: cursive;
   font-size: larger;
-  color: #1f8611;
-  --background: green;
+  color: white;
+  --background: #33cccc;
 }
 
 .card-title {
   font-size: 20;
   font-weight: bold;
-  color: black;
+  color: green;
   padding: 20px;
   font-family: cursive;
 }
@@ -21,13 +21,8 @@
   padding: 20px;
 }
 
-.btn-color {
-  --background: var(--ion-color-btn);
-  --background: #33cccc;
-}
-
 .card-subtitle {
   font-size: 1.0em;
-  color: #33cccc;
+  color: white;
 }
 /*# sourceMappingURL=jobs.page.css.map */

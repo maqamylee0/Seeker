@@ -84,4 +84,9 @@ export class SignupPage implements OnInit {
   goToLogin(){
     this.router.navigate(['/login'])
   }
+  goToPreferences(){
+    this.router.navigate(['/preferences'])
+
+
+  }
 }

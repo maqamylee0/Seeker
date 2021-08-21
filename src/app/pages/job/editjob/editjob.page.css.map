@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAA;EACP,KAAK,EAAC,KAAK;CACd",
+    "sources": [
+        "editjob.page.scss"
+    ],
+    "names": [],
+    "file": "editjob.page.css"
+}

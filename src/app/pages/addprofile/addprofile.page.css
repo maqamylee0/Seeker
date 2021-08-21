@@ -53,23 +53,6 @@
   background-color: #00e1ff;
 }
 
-.shopName {
-  z-index: 100;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  position: absolute;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  bottom: 7px;
-  color: white;
-  left: 85px;
-}
-
 .background {
   background-color: #33cccc;
 }
@@ -78,5 +61,6 @@
   font-family: cursive;
   font-size: larger;
   --background: green;
+  border-color: green;
 }
 /*# sourceMappingURL=addprofile.page.css.map */

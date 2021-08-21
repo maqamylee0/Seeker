@@ -7,9 +7,12 @@ import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
-// import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { File } from '@ionic-native/file/ngx';
+import{FileTransfer} from '@ionic-native/file-transfer/ngx';
+import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 
 import { CallNumber } from '@ionic-native/call-number/ngx';
+// import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-job-detail',
@@ -19,13 +22,12 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 export class JobDetailPage implements OnInit {
   user:any;
   job:any;
+
   jobdetail:any;
   openForm: boolean = false;
   btnDisabled=false;
   jobs: any;
-  file: File;
-  documentFile=""
-  documentUrl=""
+  
   processing = false;
   jobdet:any;
 
@@ -38,8 +40,13 @@ export class JobDetailPage implements OnInit {
       public toast:ToastController,
       public fireStore:AngularFirestore,
       private emailComposer: EmailComposer,
-      private callNumber: CallNumber
-      // private iab: InAppBrowser
+      private callNumber: CallNumber,
+      private file:File,
+      private document: DocumentViewer,
+      private transfer: FileTransfer
+            // private iab: InAppBrowser
+
+
 
     ) { }
   
@@ -135,5 +142,13 @@ export class JobDetailPage implements OnInit {
         duration: 2000
       });
       toast.present();
+    }
+    openPdf(){
+      let path=this.file.dataDirectory;
+      const transfer=this.transfer.create();
+      transfer.download(this.jobdet.ref,path+'file.pdf').then(entry=>{
+        let url=entry.toURL();
+        this.document.viewDocument(url,'application/pdf',{});
+      })
     }
 }

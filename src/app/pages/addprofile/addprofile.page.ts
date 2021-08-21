@@ -6,6 +6,8 @@ import { ApiService} from '../services/api-service.service';
 import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { NavigationExtras } from '@angular/router';
+
 
 @Component({
   selector: 'app-addprofile',
@@ -61,12 +63,20 @@ openForm: boolean = false;
       .doc(this.user.uid)
       .update(my_profile)
       .then( () =>{     
-         this.presentToast()
         //  this.btntext="Edit";
-        this.router.navigate(['profile']);
-
+        this.data.getActiveUser();
         localStorage.setItem('activeUser', JSON.stringify(my_profile));
-        }
+        this.showToast("Profile edited");
+        let navigationExtras: NavigationExtras = {
+          state: {
+            user: my_profile
+          }
+        };
+        this.router.navigate(['/profile'], navigationExtras);
+      }
+        // this.router.navigate(['/profile']);
+
+        
       )
       .catch( error =>alert(error.message)
       )
@@ -105,9 +115,9 @@ openForm: boolean = false;
   //   const downloadURL = await task.ref.getDownloadURL();
   //   return downloadURL;
   // }
-  async presentToast() {
+  async showToast(message) {
     const toast = await this.toast.create({
-      message: 'Profile  added',
+      message,
       duration: 2000
     });
     toast.present();

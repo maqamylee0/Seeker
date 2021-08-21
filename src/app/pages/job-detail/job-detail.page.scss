@@ -16,11 +16,12 @@
     font-family: cursive;
   }
   .card{
-      border-radius: 15%;
-      background-color:white;    
-      font-family: cursive;
-      width: 90%;
-      padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important;
+    background: white;
+    width: 500px;
+    height: 100%;
 
   
   }
@@ -40,4 +41,8 @@
     font-size: 1.0em;  
     color: #33cccc;
     
+  }
+  .card-content{
+    padding: 20px;
+    margin-right: 20px;
   }
