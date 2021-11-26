@@ -10,7 +10,12 @@
   
 <ion-content >
   <!-- <ion-card class="content"> -->
-  
+  <ion-card>
+    <ion-card-content>
+      <img src="assets/icon/interview.svg" alt="" srcset="">
+    </ion-card-content>
+
+  </ion-card>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <ion-card class="content">
       <ion-list class="form">   
@@ -41,18 +46,20 @@
   
       </ion-list>
       <small class="error">{{error}}</small>
-    <ion-button  type="submit"  class="title" shape="round" style="color:white" expand="round"> {{ btnText }} </ion-button>
+    <ion-button  type="submit"  class="title" shape="round" style="color:white" > {{ btnText }} </ion-button>
   </ion-card>
-  <ion-button  type="submit"  class="title" shape="round" style="color:white" (click)="goToPreferences()" expand="round"> Select Preferences before SignUp </ion-button>
 
   </form>    
-  
 
+
+  <ion-button  type="submit"  class="title"  style="color:white" (click)="goToPreferences()"> Select Preferences before SignUp </ion-button>
 
 <!-- </ion-card> -->
 </ion-content>
-<ion-footer>
-  I have an account, <ion-button class="title" (click)="goToLogin()"><b>Login</b></ion-button>
+<ion-footer class="footer">
+<h3>  Already have an account
+</h3>
+   <ion-button class="title" (click)="goToLogin()"><b>Login</b></ion-button>
 </ion-footer>
 
 

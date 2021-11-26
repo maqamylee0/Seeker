@@ -3,13 +3,17 @@
 
 .content{
     background-color:white;
+    display: grid;
+    align-items: center;
+    justify-content:center;
+
 }
 middle{
 margin-left: 30px;
 }
 .title{
     font-family: cursive;
-    font-size: larger;
+    font-size: small;
     color:white;
     --background: #33cccc;
 }
@@ -36,13 +40,19 @@ margin-left: 30px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-
+.footer{
+    display: grid;
+    grid-template-rows: 1 2;
+}
 
 .form{
-    padding:20px;
-    margin-bottom: 30px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    // padding:20px;
+    // margin-bottom: 30px;
+    // border-bottom-left-radius: 25px;
+    // border-bottom-right-radius: 25px;
+    // border-top-left-radius: 25px;
+    // border-top-right-radius: 25px;
+    display:grid;
+    align-items:center;
+    justify-content:center;
 }

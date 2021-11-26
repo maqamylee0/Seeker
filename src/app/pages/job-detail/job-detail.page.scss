@@ -14,6 +14,7 @@
     color: black;
     padding: 20px;
     font-family: cursive;
+    grid-template-columns: 2;
   }
   .card{
     display: flex;
@@ -25,13 +26,17 @@
 
   
   }
-  .grid-container {
+  .grid-items{
     display: grid;
+    justify-content: center;
+    align-items: center;
+    
+
   }
   
     .title{
       font-family: cursive;
-      font-size: larger;
+      font-size: small;
       --background: #33cccc;
       color:#1f8611;
       border-left: 400px;
@@ -43,6 +48,7 @@
     
   }
   .card-content{
+    height: max-content;
     padding: 20px;
     margin-right: 20px;
   }
