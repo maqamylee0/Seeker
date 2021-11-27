@@ -1,6 +1,5 @@
 
 .title{
-    font-family: cursive;
     font-size: larger;
     color:white;
     --background: #33cccc;
@@ -15,7 +14,6 @@
   font-weight: bold;
   color: green;
   padding: 20px;
-  font-family: cursive;
 }
 .card{
     display: flex;
@@ -23,7 +21,7 @@
     margin: 0 !important;
     background: white;
     width: 500px;
-    height: 100%;   
+    // height: 100%;   
 
 }
 

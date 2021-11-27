@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="favorite">
     <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu"></ion-menu-button>
+      <ion-back-button defaultHref="profile"></ion-back-button>
     </ion-buttons>
-    <ion-title class="title"> <span style="color:#1f8611;"> Add Profile</span></ion-title>
+    <ion-title class="title"> <span style="color:#1f8611;"> Edit Profile</span></ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -43,15 +43,16 @@
 
           <ion-item>
               <ion-label position="floating" style="color:green">Name</ion-label>
-              <ion-input type="text" ngModel name="name"  placeholder="FullName"></ion-input>
+              <ion-input type="text" value={{user.name}} ngModel name="name"  placeholder="FullName" required></ion-input>
           </ion-item>
+
         </ion-card>
 
         <ion-card>
 
           <ion-item>
               <ion-label position="floating" style="color:green">Email</ion-label>
-              <ion-input type="text" ngModel name="email"  placeholder="example@gmail.com"></ion-input>
+              <ion-input type="text" value={{user.email}} ngModel name="email" placeholder="example@gmail.com" required> </ion-input>
           </ion-item>
         </ion-card>       
 
@@ -61,16 +62,20 @@
 
             <ion-item>
               <ion-label position="floating" style="color:green">Address</ion-label> 
-              <ion-input type="text" ngModel  name="address"  placeholder="City or town"></ion-input>
+              <ion-input type="text" ngModel  name="address" value={{user.address placeholder="City or town" required></ion-input>
             </ion-item>
+            <small class="error">{{error}}</small>
+
           </ion-card>
 
             <ion-card>
 
             <ion-item>
               <ion-label position="floating" style="color:green"> Age</ion-label>
-              <ion-textarea  ngModel name="age" required ></ion-textarea>
+              <ion-textarea  ngModel name="age"value={{user.age}} required ></ion-textarea>
             </ion-item>
+            <small class="error">{{error}}</small>
+
           </ion-card>
     
           <ion-card>
@@ -82,29 +87,35 @@
                 <ion-select-option  value="male">Male</ion-select-option>
               </ion-select>
             </ion-item>
+            <small class="error">{{error}}</small>
+
           </ion-card>
 
           <ion-card>
 
             <ion-item>
                 <ion-label position="floating" style="color:green">Nationality</ion-label>
-                <ion-input type="text" ngModel name="nationality"  placeholder="Ugandan"></ion-input>
+                <ion-input type="text" ngModel name="nationality" value={{user.nationality}} placeholder="Ugandan" required></ion-input>
             </ion-item>
+            <small class="error">{{error}}</small>
+
           </ion-card>
 
           <ion-card>
 
             <ion-item>
               <ion-label position="floating" style="color:green">LinkedIn Profile Link</ion-label>
-              <ion-input type="text" ngModel name="linkedIn"  placeholder="linkedIn profile link"></ion-input>
+              <ion-input type="text" ngModel name="linkedIn" value={{user.LinkedIn}} placeholder="linkedIn profile link"></ion-input>
           </ion-item>
+          <small class="error">{{error}}</small>
+
         </ion-card>
 
         <ion-card>
 
           <ion-item>
             <ion-label position="floating" style="color:green">WebsiteLink Link</ion-label>
-            <ion-input type="text" ngModel name="website"  placeholder="website link"></ion-input>
+            <ion-input type="text" ngModel name="website" value={{user.website}} placeholder="website link"></ion-input>
         </ion-item>
       </ion-card>
 
@@ -112,7 +123,7 @@
 
         <ion-item>
           <ion-label position="floating" style="color:green">Medium Link</ion-label>
-          <ion-input type="text" ngModel name="medium"  placeholder="medium link"></ion-input>
+          <ion-input type="text" ngModel name="medium" value={{user.medium}} placeholder="medium link"></ion-input>
       </ion-item>
     </ion-card>
 
@@ -120,7 +131,7 @@
 
       <ion-item>
         <ion-label position="floating" style="color:green">Facebook Link</ion-label>
-        <ion-input type="text" ngModel name="facebook"  placeholder="facebook link"></ion-input>
+        <ion-input type="text" ngModel name="facebook" value={{user.facebook}} placeholder="facebook link"></ion-input>
     </ion-item>
   </ion-card>
 

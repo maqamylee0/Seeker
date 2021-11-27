@@ -16,14 +16,17 @@ import { NavigationExtras } from '@angular/router';
 export class OpportunitiesPage implements OnInit {
 user:any;
 
+ jobs:any;
 
-jobs:{email: string;
-  company: String;
-  description: String;
-  jobTitle: String;
-  Description: String;}[]=[];
-job_id:any;
-item:any;
+// jobs:
+// {email: string;
+// userId:String;
+//   company: String;
+//   description: String;
+//   jobTitle: String;
+//   Description: String;}[]=[];
+  job_id:any;
+ //item:any;
 
   constructor(
     public fireAuth:AngularFireAuth,
@@ -46,24 +49,25 @@ item:any;
   }
 
   fetchJobs(){  
-    const where = { key: 'jobId', value:this.user.jobId  };
-    
+    const where = { key: 'jobId', value:this.user.jobId };
+
+    console.log(this.user.jobId);
     this.service._get('jobs', where).subscribe(data => {
-      this.item = data.docs.map(doc => doc.data());
-    this.item.forEach(element => {
-   if(element.userId !== this.user.uid){
-     this.jobs.push(element);
-  
-   }
-    
+   // this.jobs = data.docs.map(doc => doc.data());
+      this.jobs = data.docs.map(doc => doc.data());
+    // this.item.forEach(element => {
+    //   if(element.userId !== this.user.uid){
+     this.jobs.filter(function(ele){ 
+      return ele.userId !== this.user.uid; 
   });
-console.log(this.jobs)
+  
+   
+    
+  
  });
-   // });
-   console.log(this.jobs)
 
-  }
-
+}
+  
   
   async showToast(message) {
     const toast = await this.toast.create({

@@ -13,29 +13,29 @@
     font-weight: bold;
     color: black;
     padding: 20px;
-    font-family: cursive;
     grid-template-columns: 2;
+  }
+  .buttons{
+    display: flex;
   }
   .card{
     display: flex;
     flex-direction: column;
     margin: 0 !important;
     background: white;
-    width: 500px;
-    height: 100%;
+    width: 100%;
 
   
   }
-  .grid-items{
-    display: grid;
-    justify-content: center;
-    align-items: center;
+  // .grid-items{
+  //   // display: grid;
+  //   // justify-content: center;
+  //   // align-items: center;
     
 
-  }
+  // }
   
     .title{
-      font-family: cursive;
       font-size: small;
       --background: #33cccc;
       color:#1f8611;
@@ -50,5 +50,5 @@
   .card-content{
     height: max-content;
     padding: 20px;
-    margin-right: 20px;
+    width: 100%;
   }

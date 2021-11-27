@@ -1,10 +1,13 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
+
+
 const config: CapacitorConfig = {
   appId: 'com.example.seeker',
   appName: 'Seeker',
   webDir: 'www',
   bundledWebRuntime: false,
+  
   cordova: {
     preferences: {
       ScrollEnabled: 'false',
@@ -16,6 +19,7 @@ const config: CapacitorConfig = {
       SplashScreenDelay: '3000'
     }
   }
+  
 };
 
 export default config;

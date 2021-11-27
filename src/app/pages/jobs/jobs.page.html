@@ -12,6 +12,14 @@
 
 
 <ion-content>
+  <ion-searchbar color="white" 
+  placeholder="Search"
+  [(ngModel)]="search"
+  showCancelButton="focus"
+  animated="true"
+  >
+
+  </ion-searchbar>
   <!-- <ion-card > -->
     <div class="empty"  *ngIf="jobs?.length === 0">
       <ion-icon name="notifications"></ion-icon>     
@@ -24,7 +32,7 @@
   <ion-list lines="none"*ngIf="jobs?.length !== 0" >
     
     
-    <ion-item *ngFor="let job of jobs" >
+    <ion-item *ngFor="let job of jobs | filter:search" >
       <!-- <ion-card class="card" >
         <h1>{{job.name}}</h1>
         <p>BY:{{ job.company }}</p>
@@ -36,7 +44,7 @@
        <ion-card class="card">
         <ion-card-header>
           <ion-avatar>
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            <img src="assets/icon/resume.svg">
           </ion-avatar>
           <ion-card-title class="card-title">{{job.name}}</ion-card-title>
           <ion-card-subtitle class="card-subtitle">BY:{{ job.company }}</ion-card-subtitle>
@@ -48,11 +56,13 @@
           <br>
           Email: {{ job.email }}
         </ion-card-content>
+        <div class="buttons">
+          <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round"  expand="block"  > View</ion-button>
+          <ion-button class="title" type="submit"(click)="goToJobEdit(job)"  shape="round"  expand="block"  > Edit</ion-button>
+  
+          <ion-button class="title" type="submit"  shape="block"  expand="round" (click)="removeJob(job.uid)"> Delete Job</ion-button>
+        </div>
         
-        <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round"  expand="block"  > View</ion-button>
-        <ion-button class="title" type="submit"(click)="goToJobEdit(job)"  shape="round"  expand="block"  > Edit</ion-button>
-
-        <ion-button class="title" type="submit"  shape="block"  expand="round" (click)="removeJob(job.uid)"> Delete Job</ion-button>
         
 
       </ion-card>

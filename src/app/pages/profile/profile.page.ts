@@ -31,7 +31,6 @@ openForm: boolean = false;
 
   ngOnInit() {
      this.user = this.data.getActiveUser();
-     console.log(this.user1)
       // this.user1 = JSON.parse(localStorage.getItem('activeUser'));
      if (this.router.getCurrentNavigation().extras.state) {
       this. user = this.router.getCurrentNavigation().extras.state.user;

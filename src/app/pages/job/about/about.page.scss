@@ -7,8 +7,11 @@
     height: 100%;
     
 }
+.buttons{
+    display: flex;
+}
 .title{
-    font-family: cursive;
+    font-family: 'Courier New', Courier, monospace;
     font-size: larger;
     --background: #33cccc;
     color:#1f8611;

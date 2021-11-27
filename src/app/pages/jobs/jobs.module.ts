@@ -10,13 +10,15 @@ import { JobsPage } from './jobs.page';
 import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    JobsPageRoutingModule
+    JobsPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   providers: [File,DocumentViewer,FileTransfer],
   declarations: [JobsPage]

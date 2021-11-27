@@ -7,12 +7,14 @@ import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras } from '@angular/router';
+
 @Component({
   selector: 'app-alljobs',
   templateUrl: './alljobs.page.html',
   styleUrls: ['./alljobs.page.scss'],
 })
 export class AlljobsPage implements OnInit {
+  search: string;
   user:any;
   jobs:any;
   item;

@@ -9,13 +9,16 @@ import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { OpportunitiesPage } from './opportunities.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OpportunitiesPageRoutingModule
+    OpportunitiesPageRoutingModule,
+    Ng2SearchPipeModule
+
   ],
   providers: [File,FileTransfer,DocumentViewer],
 

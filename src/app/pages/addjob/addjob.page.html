@@ -120,5 +120,9 @@
      
     </ion-list>
     <ion-button class="title" type="submit" shape="round" style="color:white" expand="block">{{btnText}}</ion-button>
+    $(":input").each(function() {
+      if($(this).val() === "")
+       alert("Empty Fields!!");
+   });
   </form>
 </ion-content>

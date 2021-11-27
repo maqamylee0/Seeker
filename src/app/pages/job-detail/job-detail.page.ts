@@ -22,6 +22,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 export class JobDetailPage implements OnInit {
   user:any;
   job:any;
+  search:string;
 
   jobdetail:any;
   openForm: boolean = false;
@@ -55,14 +56,14 @@ export class JobDetailPage implements OnInit {
       // this.item=this.route.snapshot.params;
     if (this.router.getCurrentNavigation().extras.state) {
       this. jobdet = this.router.getCurrentNavigation().extras.state.user;
-      console.log(this.jobdet);
+     // console.log(this.jobdet);
       
     }
     }
-    ionViewWillEnter() {
-      // this.fetchMyJob();
+    // ionViewWillEnter() {
+    //  // this.fetchMyJob();
       
-    }
+    // }
   
     // fetchMyJob(){  
     //   const where = {key: 'jobId', value: this.user.jobId }; 

@@ -1,6 +1,5 @@
 
 .title{
-    font-family: cursive;
     font-size: larger;
     color:white;
     --background: #33cccc;
@@ -14,15 +13,17 @@
   font-size: 20;  
   font-weight: bold;
   color: green;
-  padding: 20px;
-  font-family: cursive;
+  // padding: 20px;
+}
+.buttons{
+  display: flex;
 }
 .card{
-    border-radius: 15%;
+    // border-radius: 15%;
     background-color: white;    
-    font-family: cursive;
     width: 100%;
-    padding: 20px;   
+    // padding: 20px;   
+    margin: 0 !important;
 
 }
 

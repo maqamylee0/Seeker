@@ -12,6 +12,11 @@
 
 
 }
+.footer{
+  display: grid;
+  grid-template-rows: 1 2;
+  padding: 20px;
+}
 
 .form{
     text-align: center;

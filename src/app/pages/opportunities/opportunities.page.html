@@ -22,10 +22,16 @@
 
         
   </div>
-  
+  <ion-searchbar color="white" 
+  placeholder="Search"
+  [(ngModel)]="search"
+  showCancelButton="focus"
+  animated="true"
+  >
+</ion-searchbar>
   <ion-list lines="none" *ngIf="jobs?.length !== 0">
     <!-- <ion-card class="grid"> -->
-      <ion-item *ngFor="let job of jobs" class="grid">
+      <ion-item *ngFor="let job of jobs| filter:search" class="grid">
         <ion-card class="grid">
           <ion-card-header class="header">
             
