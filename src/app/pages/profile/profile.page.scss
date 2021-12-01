@@ -1,7 +1,7 @@
 .card-head{
     padding: 0px;
     position: relative !important;
-
+    margin: 0px !important;
 }
 
 .buttons{
@@ -44,23 +44,25 @@ height: 55px;
     --background: #33cccc;
 
 }
-.shopName{
+// .shopName{
     
-    z-index: 100;
-    display:inline-flex;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    bottom: 7px;
-    color: white;
-    left: 85px;
+//     z-index: 100;
+//     display:inline-flex;
+//     position: absolute;
+//     align-items: center;
+//     justify-content: center;
+//     bottom: 7px;
+//     color: white;
+//     left: 85px;
 
-}
+// }
 .title{
     font-size: larger;
     --background: #33cccc;
     color:#1f8611;
     border-left: 400px;
+    font-family: 'Courier New', Courier, monospace;
+
 }
 .word-color{
     color:green;

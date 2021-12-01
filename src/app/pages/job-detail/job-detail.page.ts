@@ -23,7 +23,7 @@ export class JobDetailPage implements OnInit {
   user:any;
   job:any;
   search:string;
-
+email:any;
   jobdetail:any;
   openForm: boolean = false;
   btnDisabled=false;
@@ -45,7 +45,7 @@ export class JobDetailPage implements OnInit {
       private file:File,
       private document: DocumentViewer,
       private transfer: FileTransfer
-            // private iab: InAppBrowser
+      // private iab: InAppBrowser
 
 
 
@@ -106,9 +106,9 @@ export class JobDetailPage implements OnInit {
     //     });
       
     // }
-    // addBtnClicked() {
-    //   this.openForm = !this.openForm;
-    // }
+    addBtnClicked() {
+      this.openForm = !this.openForm;
+    }
   
     // async upload(file) {
     //    console.log("here");

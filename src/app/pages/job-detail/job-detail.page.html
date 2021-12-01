@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="jobs"></ion-back-button>
     </ion-buttons>
-    <ion-title class="title"> <span style="color:#1f8611;"> Job Detail</span></ion-title>
+    <ion-title class="title"> <span style="color:#1f8611;"> <b>Job Detail</b></span></ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -40,14 +40,14 @@
       <p> Email: {{ jobdet.email }}</p>
       <p> Contact: {{ jobdet.phone }}</p>
       <div class="buttons">
-        <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="openPdf()">Download pdf</ion-button>
+        <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="openPdf()"><b>Download pdf</b></ion-button>
 
 
 
-    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="callUser(jobdet.phone)">Call</ion-button>
+    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="callUser(jobdet.phone)"><b>Call</b></ion-button>
 
 
-    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="sendEmail(jobdet.email)">Email</ion-button>
+    <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="sendEmail(jobdet.email)"><b>Email</b></ion-button>
       </div>
   
 </ion-card-content>

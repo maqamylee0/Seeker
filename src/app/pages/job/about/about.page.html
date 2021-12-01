@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="jobs"></ion-back-button>
     </ion-buttons>
-    <ion-title class="title"> <span style="color:#1f8611;"> My Job Detail</span></ion-title>
+    <ion-title class="title"> <span style="color:#1f8611;"><b>My Job Detail</b> </span></ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -16,7 +16,7 @@
         <div class="grid-item">
           <img src="assets/icon/resume.svg">
       </div>
-  <div class="grid-item"><ion-card-title class="card-title">{{jobdet.name}}</ion-card-title>
+  <div class="grid-item"><ion-card-title class="card-title"><b>{{jobdet.name}}</b></ion-card-title>
   </div>
         
 
@@ -32,12 +32,12 @@
       <br>
       <p> Email: {{ jobdet.email }}</p>
 <div class="buttons">
-  <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="openPdf()">Download and open Job details pdf</ion-button>
+  <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="openPdf()"><b> Open pdf</b></ion-button>
 
-  <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block" (click)="deleteJob(jobdet.uid)">Delete</ion-button>
+  <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block" (click)="deleteJob(jobdet.uid)"><b>Delete</b></ion-button>
 
 
-  <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block" (click)="goToEdit()">Edit</ion-button>
+  <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="block" (click)="goToEdit()"><b>Edit</b></ion-button>
 </div>
       
   

@@ -14,6 +14,8 @@
     color: black;
     padding: 20px;
     grid-template-columns: 2;
+    font-family: 'Courier New', Courier, monospace;
+
   }
   .buttons{
     display: flex;
@@ -36,10 +38,12 @@
   // }
   
     .title{
-      font-size: small;
+      font-size: larger;
       --background: #33cccc;
       color:#1f8611;
       border-left: 400px;
+      font-family: 'Courier New', Courier, monospace;
+
   }
   
   .card-subtitle {

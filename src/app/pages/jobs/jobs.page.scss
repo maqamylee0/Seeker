@@ -3,7 +3,16 @@
     font-size: larger;
     color:white;
     --background: #33cccc;
+    font-family: 'Courier New', Courier, monospace;
+color: green;
 
+}
+.btn-title{
+  font-size: larger;
+  color:white;
+  --background: #33cccc;
+  font-family: 'Courier New', Courier, monospace;
+color: white;
 
 }
 // *{
@@ -13,6 +22,8 @@
   font-size: 20;  
   font-weight: bold;
   color: green;
+  font-family: 'Courier New', Courier, monospace;
+
   // padding: 20px;
 }
 .buttons{

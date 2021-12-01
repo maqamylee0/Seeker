@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
-    <ion-title class="title"> <span style="color:#1f8611;"> My Profile</span></ion-title>
+    <ion-title class="title"> <span style="color:#1f8611;"><b> My Profile</b></span></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,23 +19,21 @@
     <ion-card>
 
     <ion-card-header class="card-head" *ngIf="user !== null">
-      <!-- <img [src]="shop.img" height="200px" style="width: 100%" alt=""  /> -->
       <div class="buttons">
-        <ion-button class="title"  shape="block" style="color:white" (click)="editProfile()" >{{ btntext }}</ion-button>
-        <ion-button  class="title"shape="block" style="color:white" (click)="signOut()" >logout</ion-button>
+        <ion-button class="title"  shape="block" style="color:white" (click)="editProfile()" ><b>{{ btntext }}</b></ion-button>
+        <ion-button  class="title"shape="block" style="color:white" (click)="signOut()" ><b>logout</b></ion-button>
   
       </div>
       
-      <div class="buttons">
+      <!-- <div class="buttons">
 
         <ion-icon routerLink="/addprofile"
           style="position: relative; color:white; font-size: 35px;"
           name="add"
         ></ion-icon>
-      </div>
+      </div> -->
       
     </ion-card-header>
-    <br />
 
     <ion-card-content *ngIf="user !== null">
       <ion-list lines="none">

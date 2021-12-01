@@ -30,7 +30,7 @@
     "@ionic-native/call-number": "^5.35.0",
     "@ionic-native/core": "^5.35.0",
     "@ionic-native/document-viewer": "^5.35.0",
-    "@ionic-native/email-composer": "^5.35.0",
+    "@ionic-native/email-composer": "^5.36.0",
     "@ionic-native/file": "^5.35.0",
     "@ionic-native/file-transfer": "^5.35.0",
     "@ionic-native/firebase": "^5.34.0",
