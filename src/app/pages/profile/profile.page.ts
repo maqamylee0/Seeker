@@ -70,6 +70,7 @@ openForm: boolean = false;
         this.data.removeUser();
         this.data.removeJob();
         this.data.removeall();
+        localStorage.removeItem('activeUser')
       })
       .catch(error => {
         console.log(error);

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="jobs"></ion-back-button>
     </ion-buttons>
-    <ion-title class="title"> <span style="color:#1f8611;"> <b>Job Detail</b></span></ion-title>
+    <ion-title class="title-header"> <span style="color:#1f8611;"> <b>Job Detail</b></span></ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -40,7 +40,7 @@
       <p> Email: {{ jobdet.email }}</p>
       <p> Contact: {{ jobdet.phone }}</p>
       <div class="buttons">
-        <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="openPdf()"><b>Download pdf</b></ion-button>
+        <ion-button  class="title" type="submit"  shape="round" style="color:white" expand="round" (click)="openPdf(jobdet.ref)"><b>Download pdf</b></ion-button>
 
 
 

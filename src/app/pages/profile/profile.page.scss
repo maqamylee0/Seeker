@@ -64,6 +64,14 @@ height: 55px;
     font-family: 'Courier New', Courier, monospace;
 
 }
+.notification{
+    display: grid;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    border: 2px solid red;
+  }
 .word-color{
     color:green;
 }

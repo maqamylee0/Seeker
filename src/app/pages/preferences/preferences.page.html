@@ -5,7 +5,7 @@
       <ion-menu-button menu="main-menu">
       </ion-menu-button>
     </ion-buttons> -->
-    <ion-buttons (click)="goToLogin()" slot="end" *ngIf="user !== null">
+    <ion-buttons (click)="goToOpportunities()" slot="end" *ngIf="user !== null">
       <ion-button >
         <ion-icon slot="icon-only" name="chevron-forward-circle-outline">Skip</ion-icon>
       </ion-button>
@@ -35,23 +35,84 @@
   </ion-list>
 
 </ion-card>
-<ion-card *ngIf="user !== null">
-  <ion-list lines="none" >
-    <ion-card *ngIf="user !== null" >
-      <h1 class="title" style="font:20px"> Chosen Interests</h1>
-    </ion-card>
-    <ion-item  >
+<div *ngIf="user !== null">
+    <div class="empty" *ngIf="jobs?.length === 0">
+       <div class="notification">
+        <ion-icon name="notifications"></ion-icon>  
+        <h1 >No Jobs Liked Yet!</h1>      
+       </div>      
+        <!-- <div class="floatingbtn"> -->
+          <!-- <ion-button class="title"  shape="block" style="color:white"(click)="goToAddjob()">Add Job</ion-button> -->
+  
+          
+    </div>
+
+    <ion-list lines="none" *ngIf="jobs?.length !== 0" class="list">
+      <ion-searchbar color="white" 
+      placeholder="Search"
+      [(ngModel)]="search"
+      showCancelButton="focus"
+      animated="true"
+      
+      >
+     </ion-searchbar>     
+       <ion-item *ngFor="let job of jobs| filter:search">
+          <ion-card class="grid">
+            <ion-card-header class="header">
+              
+               <ion-grid >
+                <ion-row >
+                  <ion-col col-md-8>
+                    <ion-avatar>
+                      <img src="assets/icon/resume.svg">
+                      </ion-avatar>
+                  </ion-col>
+                  <ion-col col-md-3>
+                    <h1>{{job.jobTitle}}</h1>
+                    <!-- <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
+                  </ion-col>               
+                  <ion-col col-md-1>
+                    <button ion-button icon-only   (click)="share(job)" >
+                      <ion-icon name="share-social-sharp"></ion-icon>                 <!-- <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
+                    </button>
+                  </ion-col> 
+                  <ion-col col-md-1>
+                    <button ion-button icon-only   (click)="unlike(job.uid)" >
+                      <ion-icon name="heart-dislike"></ion-icon>     
+                    </button>
+                  </ion-col>  
+
+                </ion-row>
+              </ion-grid>
+              <ion-card-subtitle class="card-subtitle">BY:{{ job.company }}</ion-card-subtitle>
+              
+            </ion-card-header>
+          
+            <ion-card-content class="card-content">
+              {{job.description}}
+              <br>
+              Email: {{ job.email }}
+            </ion-card-content>
+  
+            <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round" style="--background:green" style="color:white" expand="block"> <b>View</b></ion-button>
+          </ion-card>
+          
+          
+        </ion-item>       
+      
+    <!-- </ion-list> -->
+    <!-- <ion-item  >
       
       <ion-card class=small>
         <ion-button class="title" type="submit"  shape="round" style="color:white" expand="block"><b>{{ prof }}</b> </ion-button>
       </ion-card>
 
-    </ion-item>
+    </ion-item> -->
     
   
   </ion-list>
 
-</ion-card>  
+</div>  
 
 
 </ion-content>

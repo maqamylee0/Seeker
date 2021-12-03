@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { JobPage } from './job.page';
 import { AboutPage } from './about/about.page';
 import { EditJobPage } from './editjob/editjob.page'
+import { InterestPage } from './interest/interest.page';
 
 const routes: Routes = [
   {
@@ -28,6 +29,15 @@ const routes: Routes = [
           {
             path: '',
             component:EditJobPage
+          }
+        ]
+      },
+      {
+        path: 'interest',
+        children: [
+          {
+            path: '',
+            component:InterestPage
           }
         ]
       },

@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-preferences',
@@ -15,6 +16,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PreferencesPage implements OnInit {
  user:any;
+ jobs:any;
  jobId:any;
  prof:any;
   professions=["Technology","Health Sciences","Architecture and Construction","Agriculture","Education","Business and Finance","Entertainement","Marketing","Food and Beverages","Sports","Household help","Other"];
@@ -34,9 +36,33 @@ export class PreferencesPage implements OnInit {
     this.user = this.data.getActiveUser();
   }
   ionViewWillEnter() {
-    this.fetchprof();
+    if(this.user!== null){
+      this.fetchLikes();
+      console.log(this.jobs);
+      // this.router.navigate(['/opportunities'])
+
+    }else{
+      this.fetchprof();
+
+    }
+    
 
   }
+  fetchLikes(){  
+    const where = { key: 'liker', value:this.user.uid };
+
+    console.log(this.user.jobId);
+    this.service._get('likes', where).subscribe(data => {
+   // this.jobs = data.docs.map(doc => doc.data());
+      this.jobs = data.docs.map(doc => doc.data());
+    // this.item.forEach(element => {
+    //   if(element.userId !== this.user.uid){
+     this.jobs.filter(function(ele){ 
+      return ele.userId !== this.user.uid; 
+  });
+});
+
+}
 //if(this.jobId !== null){
   fetchprof(){
     if(this.user !== null)
@@ -151,7 +177,7 @@ switch(this.jobId){
     toast.present();
   }
   goToOpportunities(){
-    this.router.navigate(['/signup'])
+    this.router.navigate(['/opportunities'])
   }
   async presentToast() {
     const toast = await this.toast.create({
@@ -164,4 +190,29 @@ switch(this.jobId){
     this.router.navigate(['/login'])
 
   }
+  
+  unlike(jobUid){
+    console.log(jobUid);
+    this.service._delete('likes',jobUid);{
+      this.fireStore.collection('likes')
+      .doc(jobUid)
+      .delete()
+      .then( data => this.showToast("Job Removed from likes"))
+      .catch(error => this.showToast("error"+ error))
+    }
+    this.router.navigate(['/opportunities'])
+
+  }
+  goToJob(job){
+    const  jobdata=job;
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: jobdata
+      }
+    };
+    this.router.navigate(['/job-detail'], navigationExtras);
+  }
+    
+  
+
 }

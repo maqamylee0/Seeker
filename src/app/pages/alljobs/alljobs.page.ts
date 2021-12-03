@@ -7,6 +7,7 @@ import { DataService } from '../services/data.service';
 import { ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NavigationExtras } from '@angular/router';
+import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-alljobs',
@@ -45,6 +46,14 @@ export class AlljobsPage implements OnInit {
     });
     
   }
+  async showToast(message) {
+    const toast = await this.toast.create({
+      message,
+      duration: 2000
+    });
+    toast.present();
+  }
+
   goToJob(job){
     const  jobdata=job;
     let navigationExtras: NavigationExtras = {
@@ -57,5 +66,30 @@ export class AlljobsPage implements OnInit {
   goToAddjob(){
     this.router.navigate(['/addjob']);
   }
+  share(job){
+    console.log(job);
+    Share.share({
+      title: job.title,
+      text:`Check out this job opportunity from ${job.company}`,
+      url: job.ref,
+      dialogTitle: 'Share with buddies',
+    });
+  }
+  like(job){
+          this.showToast('Added to likes')
   
+    this.fireStore.collection('likes').add(job)
+    .then( (ref) => {
+      job.timeStamp = + new Date();
+      const uid = ref.id;
+      job.uid = uid;
+      job.liker = this.user.uid; 
+      job.status=true;   
+      this.service._edit('likes', uid, job);   
+         
+        // localStorage.setItem('activeJob', JSON.stringify(job));
+        this.router.navigate(['/preferences'])
+   }).catch( error =>    alert(error.message));
+   
+  }
 }

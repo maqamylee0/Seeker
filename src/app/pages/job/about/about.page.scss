@@ -12,6 +12,13 @@
 }
 .title{
     font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    --background: #33cccc;
+    color:#1f8611;
+    border-left: 400px;
+}
+.title-header{
+    font-family: 'Courier New', Courier, monospace;
     font-size: larger;
     --background: #33cccc;
     color:#1f8611;

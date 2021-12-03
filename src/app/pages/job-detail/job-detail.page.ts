@@ -23,7 +23,7 @@ export class JobDetailPage implements OnInit {
   user:any;
   job:any;
   search:string;
-email:any;
+  emaill:any;
   jobdetail:any;
   openForm: boolean = false;
   btnDisabled=false;
@@ -40,11 +40,11 @@ email:any;
       public data:DataService,
       public toast:ToastController,
       public fireStore:AngularFirestore,
-      private emailComposer: EmailComposer,
-      private callNumber: CallNumber,
-      private file:File,
-      private document: DocumentViewer,
-      private transfer: FileTransfer
+      public emailComposer: EmailComposer,
+      public callNumber: CallNumber,
+      public file:File,
+      public document: DocumentViewer,
+      public transfer: FileTransfer
       // private iab: InAppBrowser
 
 
@@ -56,9 +56,14 @@ email:any;
       // this.item=this.route.snapshot.params;
     if (this.router.getCurrentNavigation().extras.state) {
       this. jobdet = this.router.getCurrentNavigation().extras.state.user;
-     // console.log(this.jobdet);
+     console.log(this.jobdet);
       
     }
+    
+
+
+ 
+
     }
     // ionViewWillEnter() {
     //  // this.fetchMyJob();
@@ -125,8 +130,10 @@ email:any;
       })
 
     }
+    
     getJobpdf(ref){
       console.log(ref);
+      
     }
     async callUser(phone) {
       console.log(phone);
@@ -144,12 +151,19 @@ email:any;
       });
       toast.present();
     }
-    openPdf(){
+    openPdf(ref){
+      
+        this.document.viewDocument(ref,'application/pdf',{});
+    
+    }
+
+    downloadPdf(){
       let path=this.file.dataDirectory;
       const transfer=this.transfer.create();
-      transfer.download(this.jobdet.ref,path+'file.pdf').then(entry=>{
+      transfer.download(this.jobdet.ref,path+'myfile.pdf').then(entry=>{
         let url=entry.toURL();
         this.document.viewDocument(url,'application/pdf',{});
-      })
-    }
+
+    });
+    }  
 }

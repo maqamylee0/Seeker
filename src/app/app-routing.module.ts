@@ -5,7 +5,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'home',loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)  },
   
-  { path: '',redirectTo: 'home', pathMatch: 'full'
+  { path: '',redirectTo: 'preferences', pathMatch: 'full'
   },
   
   {
@@ -52,6 +52,10 @@ const routes: Routes = [
   {
     path: 'alljobs',
     loadChildren: () => import('./pages/alljobs/alljobs.module').then( m => m.AlljobsPageModule)
+  },
+  {
+    path: 'interest',
+    loadChildren: () => import('./pages/job/interest/interest.module').then( m => m.InterestPageModule)
   }
 
 

@@ -1,0 +1,71 @@
+<ion-header>
+  
+  <ion-toolbar color="favorite">
+    
+    <ion-title class="title"> <b>Interested</b></ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu">
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> 
+
+
+
+
+<ion-content>
+  <div class="empty" *ngIf="interests?.length === null">
+    <div class="notification">
+      <ion-icon name="notifications"></ion-icon>  
+      <h1 >No Users Interested Yet!</h1>      
+     </div>     
+      <!-- <div class="floatingbtn"> -->
+        <ion-button class="title"  shape="block" style="color:white"(click)="goToMyJobs()">All jobs</ion-button>
+
+        
+  </div>
+  
+  <ion-list lines="none" *ngIf="interests?.length !== 0">
+    <ion-searchbar color="white" 
+    placeholder="Search"
+    [(ngModel)]="search"
+    showCancelButton="focus"
+    animated="true"
+    >
+  </ion-searchbar>      <ion-item *ngFor="let interest of interests| filter:search" >
+        <ion-card class="grid">
+          <ion-card-header class="header">
+            
+             <ion-grid >
+              <ion-row >
+                <ion-col col-md-8>
+                  <ion-avatar>
+                    <img src="assets/icon/applicants.svg">
+                    </ion-avatar>
+                </ion-col>
+                <!-- <ion-col col-md-3>
+                  <h1>{{job.jobTitle}}</h1>
+                   <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
+                <!-- </ion-col>                 -->
+                
+                
+              </ion-row>
+            </ion-grid>
+            <ion-card-subtitle class="card-subtitle">Name :{{ interest.name }}</ion-card-subtitle>
+            
+          </ion-card-header>
+        
+          <ion-card-content class="card-content">
+            Contact:{{interest.phone}}
+            <br>
+            Email: {{ interest.email }}
+          </ion-card-content>
+
+          <!-- <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round" style="--background:green" style="color:white" expand="block"> <b>View</b></ion-button> -->
+        </ion-card>
+        
+        
+      </ion-item>      
+    
+  </ion-list>
+</ion-content>

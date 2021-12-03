@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'editjob',
     loadChildren: () => import('./editjob/editjob.module').then( m => m.EditjobPageModule)
   },
+  {
+    path: 'interest',
+    loadChildren: () => import('./interest/interest.module').then( m => m.InterestPageModule)
+  },
   // {
   //   path: 'confirmed',
   //   loadChildren: () => import('./confirmed/confirmed.module').then( m => m.ConfirmedPageModule)

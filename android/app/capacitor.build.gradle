@@ -12,10 +12,12 @@ dependencies {
     implementation project(':capacitor-app')
     implementation project(':capacitor-haptics')
     implementation project(':capacitor-keyboard')
+    implementation project(':capacitor-share')
     implementation project(':capacitor-splash-screen')
     implementation project(':capacitor-status-bar')
     implementation "androidx.appcompat:appcompat:1.0.0"
     implementation "com.android.support:support-v4:27.+"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
 }
 
 

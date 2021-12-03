@@ -37,8 +37,17 @@
 
   // }
   
+
+  .title-header{
+    font-size: larger;
+    --background: #33cccc;
+    color:#1f8611;
+    border-left: 400px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
     .title{
-      font-size: larger;
+      font-size: small;
       --background: #33cccc;
       color:#1f8611;
       border-left: 400px;

@@ -14,18 +14,13 @@
 
 
 <ion-content>
-  <ion-searchbar color="white" 
-  placeholder="Search"
-  [(ngModel)]="search"
-  showCancelButton="focus"
-  animated="true"
-  >
-
-  </ion-searchbar>
+  
   <!-- <ion-card > -->
     <div class="empty"  *ngIf="jobs?.length === 0">
-      <ion-icon name="notifications"></ion-icon>     
-      <h1>No Job Yet!</h1>      
+      <div class="notification">
+        <ion-icon name="notifications"></ion-icon>  
+        <h1 >No Jobs  Yet!</h1>      
+       </div>      
         <!-- <div class="floatingbtn"> -->
           <ion-button class="title"  shape="block" style="color:white"(click)="goToAddjob()" >Add Job</ion-button>
 
@@ -33,7 +28,14 @@
     </div>
   <ion-list lines="none"*ngIf="jobs?.length !== 0" >
     
-    
+    <ion-searchbar color="white" 
+  placeholder="Search"
+  [(ngModel)]="search"
+  showCancelButton="focus"
+  animated="true"
+  >
+
+  </ion-searchbar>
     <ion-item *ngFor="let job of jobs | filter:search" >
       <!-- <ion-card class="card" >
         <h1>{{job.name}}</h1>
@@ -45,9 +47,27 @@
       <!-- </ion-card> -->
        <ion-card class="card">
         <ion-card-header>
-          <ion-avatar>
-            <img src="assets/icon/resume.svg">
-          </ion-avatar>
+          <ion-row >
+            <ion-col col-md-8>
+              <ion-avatar>
+                <img src="assets/icon/resume.svg">
+                </ion-avatar>
+            </ion-col>
+            <ion-col col-md-3>
+              <h1>{{job.jobTitle}}</h1>
+              <!-- <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
+            </ion-col>               
+            <ion-col col-md-1>
+              <button ion-button icon-only   (click)="share(job)" >
+                <ion-icon name="share-social-sharp"></ion-icon>                 <!-- <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
+              </button>
+            </ion-col> 
+            <ion-col col-md-1>
+              <button ion-button icon-only   (click)="like(job)" >
+                <ion-icon name="heart-outline"></ion-icon>                  </button>
+            </ion-col>  
+            
+          </ion-row>
           <ion-card-title class="card-title">{{job.name}}</ion-card-title>
           <ion-card-subtitle class="card-subtitle">BY:{{ job.company }}</ion-card-subtitle>
           

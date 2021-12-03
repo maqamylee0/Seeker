@@ -55,6 +55,7 @@ export class AddjobPage implements OnInit {
       job.timeStamp = + new Date();
       const uid = ref.id;
       job.uid = uid;
+      job.status=false;
       this.btnText = 'Add Job';
       this.btnDisabled = false;
       this.service._edit('jobs', uid, job);      

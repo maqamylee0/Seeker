@@ -17,6 +17,14 @@
   background-color: white;
 
 }
+.notification{
+  display: grid;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  border: 2px solid red;
+}
 .card-content{
   background-color: white;
   //font-family: Arial, Helvetica, sans-serif;

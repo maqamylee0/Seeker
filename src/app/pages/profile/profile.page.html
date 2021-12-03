@@ -10,9 +10,10 @@
 <ion-content>
 
     <div class="empty"  *ngIf="user == null">
-      <ion-icon name="notifications"></ion-icon>     
-      <h1>No profile Yet!</h1>      
-        <!-- <div class="floatingbtn"> -->
+      <div class="notification">
+        <ion-icon name="notifications"></ion-icon>  
+        <h1 >No Profile Yet!</h1>      
+       </div>  
           <ion-button class="title"  shape="block" style="color:white"(click)="gotoAddProfile()" >Add Profile</ion-button>
           
     </div>

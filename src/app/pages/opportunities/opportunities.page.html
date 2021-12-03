@@ -15,29 +15,30 @@
 
 <ion-content>
   <div class="empty" *ngIf="jobs?.length === 0">
-    <ion-icon name="notifications"></ion-icon>     
-    <h1>No Jobs Posted Yet!</h1>      
+    <div class="notification">
+      <ion-icon name="notifications"></ion-icon>  
+      <h1 >No Jobs In your Interest Yet!</h1>      
+     </div>     
       <!-- <div class="floatingbtn"> -->
-        <ion-button class="title"  shape="block" style="color:white"(click)="goToAddjob()">Add Job</ion-button>
+        <ion-button class="title"  shape="block" style="color:white"(click)="goToAll()">All jobs</ion-button>
 
         
   </div>
-  <ion-searchbar color="white" 
-  placeholder="Search"
-  [(ngModel)]="search"
-  showCancelButton="focus"
-  animated="true"
-  >
-</ion-searchbar>
+  
   <ion-list lines="none" *ngIf="jobs?.length !== 0">
-    <!-- <ion-card class="grid"> -->
-      <ion-item *ngFor="let job of jobs| filter:search" class="grid">
+    <ion-searchbar color="white" 
+    placeholder="Search"
+    [(ngModel)]="search"
+    showCancelButton="focus"
+    animated="true"
+    >
+  </ion-searchbar>      <ion-item *ngFor="let job of jobs| filter:search" class="grid">
         <ion-card class="grid">
           <ion-card-header class="header">
             
              <ion-grid >
               <ion-row >
-                <ion-col col-md-3>
+                <ion-col col-md-8>
                   <ion-avatar>
                     <img src="assets/icon/resume.svg">
                     </ion-avatar>
@@ -46,6 +47,15 @@
                   <h1>{{job.jobTitle}}</h1>
                   <!-- <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
                 </ion-col>               
+                <ion-col col-md-1>
+                  <button ion-button icon-only   (click)="share(job)" >
+                    <ion-icon name="share-social-sharp"></ion-icon>                 <!-- <ion-card-title class="card-title">{{job.jobTitle}}</ion-card-title> -->
+                  </button>
+                </ion-col> 
+                <ion-col col-md-1>
+                  <button ion-button icon-only   (click)="like(job)" >
+                    <ion-icon name="heart-outline"></ion-icon>                  </button>
+                </ion-col>  
                 
               </ion-row>
             </ion-grid>
@@ -58,6 +68,7 @@
             <br>
             Email: {{ job.email }}
           </ion-card-content>
+
           <ion-button class="title" type="submit"(click)="goToJob(job)"  shape="round" style="--background:green" style="color:white" expand="block"> <b>View</b></ion-button>
         </ion-card>
         

@@ -7,6 +7,14 @@
 color: green;
 
 }
+.notification{
+  display: grid;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  border: 2px solid red;
+}
 .btn-title{
   font-size: larger;
   color:white;

@@ -6,6 +6,26 @@
 
 
 }
+.grid{
+    display: flex;
+    flex-direction: column;
+    // border: 10px solid red;
+    margin: 0 !important;
+    background: white;
+    background-color: white;
+  padding: 50px
+  }
+.list{
+  width: 100%;
+}
+.notification{
+    display: grid;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    border: 2px solid red;
+}
 // *{
 //     background-color: #33cccc;
 //   }

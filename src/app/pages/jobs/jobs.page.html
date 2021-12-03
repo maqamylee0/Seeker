@@ -12,18 +12,13 @@
 
 
 <ion-content>
-  <ion-searchbar color="white" 
-  placeholder="Search"
-  [(ngModel)]="search"
-  showCancelButton="focus"
-  animated="true"
-  >
-
-  </ion-searchbar>
+  
   <!-- <ion-card > -->
     <div class="empty"  *ngIf="jobs?.length === 0">
-      <ion-icon name="notifications"></ion-icon>     
-      <h1>No Job Yet!</h1>      
+      <div class="notification">
+        <ion-icon name="notifications"></ion-icon>  
+        <h1 >No Jobs Liked Yet!</h1>      
+       </div>  
         <!-- <div class="floatingbtn"> -->
           <ion-button class="title"  shape="block" style="color:white"(click)="goToAddjob()" >Add Job</ion-button>
 
@@ -31,7 +26,14 @@
     </div>
   <ion-list lines="none"*ngIf="jobs?.length !== 0" >
     
-    
+    <ion-searchbar color="white" 
+  placeholder="Search"
+  [(ngModel)]="search"
+  showCancelButton="focus"
+  animated="true"
+  >
+
+  </ion-searchbar>
     <ion-item *ngFor="let job of jobs | filter:search" >
       <!-- <ion-card class="card" >
         <h1>{{job.name}}</h1>
