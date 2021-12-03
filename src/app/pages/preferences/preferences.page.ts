@@ -179,6 +179,9 @@ switch(this.jobId){
   goToOpportunities(){
     this.router.navigate(['/opportunities'])
   }
+  goToSignup(){
+    this.router.navigate(['/signup'])
+  }
   async presentToast() {
     const toast = await this.toast.create({
       message: 'Preferences Set',

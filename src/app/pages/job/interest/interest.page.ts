@@ -45,10 +45,11 @@ interest:any;
 
   ngOnInit() {
     this.user = this.data.getActiveUser();
+    this.fetchJobs();
+
   }
 
   ionViewWillEnter() {
-    this.fetchJobs();
   }
 
   fetchJobs(){  
