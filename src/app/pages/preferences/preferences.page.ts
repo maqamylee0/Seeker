@@ -109,6 +109,7 @@ switch(this.jobId){
     }
   onSubmit(profession){
     console.log(profession);
+
     switch(profession){
      case"Technology":
         this.setJobId(1)
@@ -150,7 +151,8 @@ switch(this.jobId){
         this.setJobId(13)
         break;
     }
-    
+       this.router.navigate(['/signup'])
+ 
   }
   
   setJobId(jobId){

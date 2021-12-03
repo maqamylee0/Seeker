@@ -13,9 +13,16 @@ margin-left: 30px;
 }
 .title{
     font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color:white;
+    --background: #33cccc;
+}
+.sub-title{
+    font-family: 'Courier New', Courier, monospace;
     font-size: small;
     color:white;
     --background: #33cccc;
+    margin-left: 40px;
 }
 .activeType{
     background: #fff !important;
@@ -44,6 +51,8 @@ margin-left: 30px;
     display: grid;
     grid-template-rows: 1 2;
     padding:20px;
+    font-family: 'Courier New', Courier, monospace;
+
 }
 
 .form{
