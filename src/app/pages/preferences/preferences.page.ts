@@ -19,7 +19,7 @@ export class PreferencesPage implements OnInit {
  jobs:any;
  jobId:any;
  prof:any;
-  professions=["Technology","Health Sciences","Architecture and Construction","Agriculture","Education","Business and Finance","Entertainement","Marketing","Food and Beverages","Sports","Household help","Other"];
+  professions=["Technology","Health Sciences","Construction","Agriculture","Education","Business and Finance","Entertainement","Marketing","Food and Beverages","Sports","Household help","Other"];
 
   constructor(
     public service:ApiService,
