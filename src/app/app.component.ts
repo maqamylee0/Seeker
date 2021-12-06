@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { SplashScreen } from '@capacitor/splash-screen';
+//import { SplashScreen } from '@capacitor/splash-screen';
 import { ModalController } from '@ionic/angular';
 import {SplashComponent}  from './splash/splash.component'
 
-SplashScreen.show({
-  showDuration: 2000,
-  autoHide: false,
-});
+// SplashScreen.show({
+//   showDuration: 2000,
+//   autoHide: false,
+// });
 
 @Component({
   selector: 'app-root',

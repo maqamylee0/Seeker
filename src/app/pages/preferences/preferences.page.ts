@@ -76,7 +76,7 @@ switch(this.jobId){
    this.prof ="Health Sciences";
       break;
   case "3":
-    this.prof ="Architecture and Construction";
+    this.prof ="Construction";
     break;
   case "4":
       this.prof ="Agriculture";
@@ -117,7 +117,7 @@ switch(this.jobId){
         case"Health Sciences":
         this.setJobId(2)
         break;
-        case"Architecture and Construction":
+        case"Construction":
         this.setJobId(3)
         break;
         case"Agriculture":
